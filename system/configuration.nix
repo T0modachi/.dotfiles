@@ -10,6 +10,12 @@
       ./hardware-configuration.nix
     ];
 
+  # JVV nix flakes following https://www.youtube.com/watch?v=mJbQ--iBc1U&t=2s
+  nix.package = pkgs.nixFlakes;
+  nix.extraOptions = ''
+   experimental-features = nix-command flakes
+  '';
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
