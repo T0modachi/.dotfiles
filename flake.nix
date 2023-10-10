@@ -16,6 +16,25 @@
     };
     lib = nixpkgs.lib;
   in  {
+    
+    homeManagerConfigurations = {
+      T0modachi = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+	  modules = [
+	    ./users/T0modachi/home.nix
+	  ];
+      };
+
+       jvergara-buk = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${system};
+	  modules = [
+	    ./users/jvergara-buk/home.nix
+	  ];
+      };
+
+    };
+
+
     nixosConfigurations = {
       # 'nixos' is the reference to the hostname of the machine, so you can have multiples
       nixos = lib.nixosSystem {

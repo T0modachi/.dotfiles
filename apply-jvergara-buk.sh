@@ -1,4 +1,5 @@
 #!/bin/sh
 pushd ~/.dotfiles
-home-manager switch -f ./users/jvergara-buk/home.nix
+nix build .#homeManagerConfigurations.jvergara-buk.activationPackage
+./result/activate
 popd

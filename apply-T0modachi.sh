@@ -1,4 +1,5 @@
 #!/bin/sh
 pushd ~/.dotfiles
-home-manager switch -f ./users/T0modachi/home.nix
+nix build .#homeManagerConfigurations.T0modachi.activationPackage
+./result/activate
 popd
