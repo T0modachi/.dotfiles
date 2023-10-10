@@ -19,14 +19,20 @@
     
     homeManagerConfigurations = {
       T0modachi = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs {
+	    inherit system;
+	    config.allowUnfree = true;
+	  };
 	  modules = [
 	    ./users/T0modachi/home.nix
 	  ];
       };
 
        jvergara-buk = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs {
+	    inherit system;
+	    config.allowUnfree = true;
+	  };
 	  modules = [
 	    ./users/jvergara-buk/home.nix
 	  ];
