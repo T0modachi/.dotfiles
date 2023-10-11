@@ -20,13 +20,20 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
+  };
+
+
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "America/Santiago";
+#  time.timeZone = "America/Santiago";
+  time.timeZone = "Europe/Madrid";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -34,6 +41,20 @@
 
   # Select internationalisation properties.
    i18n.defaultLocale = "es_CL.UTF-8";
+
+   i18n.extraLocaleSettings = {
+     LC_ADDRESS = "es_CL.UTF-8";
+     LC_IDENTIFICATION = "es_CL.UTF-8";
+     LC_MEASUREMENT = "es_CL.UTF-8";
+     LC_MONETARY = "es_CL.UTF-8";
+     LC_NAME = "es_CL.UTF-8";
+     LC_NUMERIC = "es_CL.UTF-8";
+     LC_PAPER = "es_CL.UTF-8";
+     LC_TELEPHONE = "es_CL.UTF-8";
+     LC_TIME = "es_CL.UTF-8";
+  };
+
+
    #console = {
    #  font = "Lat2-Terminus16";
    #  keyMap = "la-latin1";
@@ -64,6 +85,10 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
    services.xserver.layout = "latam";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
+  # Configure console keymap
+  console.keyMap = "la-latin1";
+
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
@@ -74,21 +99,17 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
   # Define a user account. Don't forget to set a password with ‘passwd’.
    users.users.T0modachi= {
      isNormalUser = true;
+     initialPassword = "passwd";
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
-       firefox
-       tree
-       vim
      ];
    };
 
    users.users.jvergara-buk = {
      isNormalUser = true;
+     initialPassword = "passwd";
      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
-       firefox
-       tree
-       vim
      ];
    };
 
@@ -102,6 +123,7 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
      git
      git-crypt
      gnupg
+     firefox
    ];
 
   # Some programs need SUID wrappers, can be configured further or are

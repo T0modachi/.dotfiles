@@ -3,58 +3,30 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
-	{
-	  imports =
-	    [ (modulesPath + "/installer/scan/not-detected.nix")
-	    ];
+        {
+          imports =
+            [ (modulesPath + "/installer/scan/not-detected.nix")
+            ];
 
-	  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-	  boot.initrd.kernelModules = [ "dm-snapshot" "amdgpu" ];
-	  boot.kernelModules = [ "kvm-amd" ];
-	  boot.extraModulePackages = [ ];
+          boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+          boot.initrd.kernelModules = [ "dm-snapshot" "amdgpu" ];
+          boot.kernelModules = [ "kvm-amd" ];
+          boot.extraModulePackages = [ ];
 
-
-	# mi particion luce asi
-	#[T0modachi@nixos:~]$ lsblk -f
-	#NAME             FSTYPE      FSVER    LABEL   UUID                                   FSAVAIL FSUSE% MOUNTPOINTS
-	#nvme0n1                                                                                             
-	#├─nvme0n1p1      crypto_LUKS 2        NIXROOT badfe8b0-922e-4983-ba4d-a6de7131c136                  
-	#│ └─luksroot     LVM2_member LVM2 001         g3JcmE-DALN-NRgN-F1xA-A1zc-9vQ1-L9EbxG                
-	#│   ├─nixvg-swap swap        1        swap    30212e8e-9d9c-414a-aee5-caeb496607e8                  [SWAP]
-	#│   └─nixvg-root ext4        1.0      nixos   3ea4157f-7528-499c-8c57-010cbb7cc51a      430G     1% /nix/store
-	#│                                                                                                   /
-	#└─nvme0n1p2      vfat        FAT32    NIXBOOT 5637-B329                                 490M     4% /boot
-	# Lo logre con este link https://codeberg.org/RobWalt/nixos-installation y al final tuve que etiquetar el cryptoluks con este comando
-	# sudo cryptsetup config /dev/nvme0n1p1 --label NIXROOT
-
-	boot.initrd.enable = true;
-	boot.initrd.luks.devices = {
-	  luksroot = {
-	    #device = "/dev/disk/by-uuid/badfe8b0-922e-4983-ba4d-a6de7131c136";
-	    device = "/dev/disk/by-label/NIXROOT";
-    preLVM = true;
-  };
-};
 
   fileSystems."/" =
-    { 
-      #device = "/dev/disk/by-uuid/3ea4157f-7528-499c-8c57-010cbb7cc51a";
-      device = "/dev/disk/by-label/nixos";
+    { device = "/dev/disk/by-uuid/f8e9bd08-3ed2-4dde-874b-61ef8b206418";
       fsType = "ext4";
     };
 
+  boot.initrd.luks.devices."luks-497f7b53-846b-4858-bc2b-b1235b104f37".device = "/dev/disk/by-uuid/497f7b53-846b-4858-bc2b-b1235b104f37";
+
   fileSystems."/boot" =
-    { 
-     # device = "/dev/disk/by-uuid/5637-B329";
-      device = "/dev/disk/by-label/NIXBOOT";
+    { device = "/dev/disk/by-uuid/9F30-E11F";
       fsType = "vfat";
     };
 
-  swapDevices =
-    [ { 
-      #device = "/dev/disk/by-uuid/30212e8e-9d9c-414a-aee5-caeb496607e8";
-      device = "/dev/disk/by-label/swap"; }
-    ];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -71,6 +43,8 @@
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   # Enable sound with pipewire
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -115,3 +89,4 @@
 
 
  }
+
