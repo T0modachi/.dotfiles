@@ -42,6 +42,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
 
   # Enable the Plasma 5 Desktop Environment.

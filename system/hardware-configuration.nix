@@ -9,7 +9,7 @@
 	    ];
 
 	  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-	  boot.initrd.kernelModules = [ "dm-snapshot" ];
+	  boot.initrd.kernelModules = [ "dm-snapshot" "amdgpu" ];
 	  boot.kernelModules = [ "kvm-amd" ];
 	  boot.extraModulePackages = [ ];
 
@@ -80,6 +80,38 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
+
+  # laptop powersave
+  powerManagement.enable = true;
+  
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+   };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
+
+  #GPU
+  hardware.opengl.extraPackages = with pkgs; [
+    rocm-opencl-icd
+    rocm-opencl-runtime
+    amdvlk #vulkan
+  ];
+
+  hardware.opengl.driSupport = true;
+  # For 32 bit applications
+  hardware.opengl.driSupport32Bit = true;
+
+  # For 32 bit applications 
+  # Only available on unstable
+  hardware.opengl.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+  ];
 
 
  }
