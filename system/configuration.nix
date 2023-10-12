@@ -124,6 +124,7 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
      git-crypt
      gnupg
      firefox
+     libsForQt5.kdeconnect-kde
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -144,6 +145,16 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+   networking.firewall = { 
+     enable = true;
+     allowedTCPPortRanges = [ 
+       { from = 1714; to = 1764; } # KDE Connect
+     ];  
+     allowedUDPPortRanges = [ 
+       { from = 1714; to = 1764; } # KDE Connect
+     ];  
+   };  
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
