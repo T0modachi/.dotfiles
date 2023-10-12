@@ -75,4 +75,45 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "T0modachi";
+    userEmail = "jvergarava@gmail.com";
+
+    extraConfig = {
+      core = {
+        sshCommand = "ssh -i ~/.ssh/id_ed25519";
+      };
+    };
+
+    includes = [
+      {
+        contents = {
+          user = {
+            name = "Javier Vergara";
+	    email = "jvergara@buk.cl";
+	  };
+
+	core = {
+	  sshCommand = "ssh -i ~/.ssh/id_ed25519_buk";
+        };
+      };
+
+      condition = "gitdir:~/work/";
+      }
+    ];
+  };
+
+  programs.ssh = {
+    enable = true;
+    matchBlocks."*" = {
+      extraOptions = {
+        AddKeysToAgent = "yes";
+        IdentitiesOnly = "yes";
+      };
+    };
+  };
+
+
 }
