@@ -156,6 +156,10 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
      ];  
    };  
 
+   # Syncthing ports
+   networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+   networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.

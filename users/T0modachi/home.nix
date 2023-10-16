@@ -89,4 +89,13 @@
     };
 
   };
+
+services = {
+    syncthing = {
+        enable = true;
+        extraOptions = ["--config=/home/T0modachi/Documentos/.config/syncthing/" " --data=/home/T0modachi/Documentos"];
+    };
+};
+
+
 }
