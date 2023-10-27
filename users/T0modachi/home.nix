@@ -19,6 +19,7 @@
   # environment.
   home.packages = with pkgs;[
     obsidian
+    nerdfonts
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -68,6 +69,8 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+
 
   programs.git = {
     enable = true;
