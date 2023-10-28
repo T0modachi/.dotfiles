@@ -120,6 +120,7 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      home-manager # jvv: incluyo segun instrucciones de https://www.youtube.com/watch?v=FcC2dzecovw
+     gcc
      git
      git-crypt
      gnupg
