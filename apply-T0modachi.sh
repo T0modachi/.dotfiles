@@ -1,5 +1,5 @@
 #!/bin/sh
 pushd ~/.dotfiles
-nix build .#homeManagerConfigurations.T0modachi.activationPackage
+nix build  .?submodules=1#homeManagerConfigurations.T0modachi.activationPackage
 ./result/activate
 popd
