@@ -1,5 +1,5 @@
 #!/bin/sh
 pushd ~/.dotfiles
-nix build .#homeManagerConfigurations.jvergara-buk.activationPackage
+nix build .?submodules=1#homeManagerConfigurations.jvergara-buk.activationPackage
 ./result/activate
 popd

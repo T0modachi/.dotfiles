@@ -27,6 +27,8 @@
     libreoffice
     vlc
     unrar
+    nerdfonts
+    ripgrep
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -48,6 +50,22 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+     ".config/nvim/init.lua".source = ./../../NvChad/init.lua;
+     ".config/nvim/lua/core/utils.lua".source = ./../../NvChad/lua/core/utils.lua;
+     ".config/nvim/lua/core/default_config.lua".source = ./../../NvChad/lua/core/default_config.lua;
+     ".config/nvim/lua/core/bootstrap.lua".source = ./../../NvChad/lua/core/bootstrap.lua;
+     ".config/nvim/lua/core/mappings.lua".source = ./../../NvChad/lua/core/mappings.lua;
+     ".config/nvim/lua/core/init.lua".source = ./../../NvChad/lua/core/init.lua;
+     ".config/nvim/lua/plugins/configs/lazy_nvim.lua".source = ./../../NvChad/lua/plugins/configs/lazy_nvim.lua;
+     ".config/nvim/lua/plugins/configs/mason.lua".source = ./../../NvChad/lua/plugins/configs/mason.lua;
+     ".config/nvim/lua/plugins/configs/telescope.lua".source = ./../../NvChad/lua/plugins/configs/telescope.lua;
+     ".config/nvim/lua/plugins/configs/others.lua".source = ./../../NvChad/lua/plugins/configs/others.lua;
+     ".config/nvim/lua/plugins/configs/treesitter.lua".source = ./../../NvChad/lua/plugins/configs/treesitter.lua;
+     ".config/nvim/lua/plugins/configs/cmp.lua".source = ./../../NvChad/lua/plugins/configs/cmp.lua;
+     ".config/nvim/lua/plugins/configs/nvimtree.lua".source = ./../../NvChad/lua/plugins/configs/nvimtree.lua;
+     ".config/nvim/lua/plugins/configs/lspconfig.lua".source = ./../../NvChad/lua/plugins/configs/lspconfig.lua;
+     ".config/nvim/lua/plugins/init.lua".source = ./../../NvChad/lua/plugins/init.lua;
+
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -115,6 +133,21 @@
       };
     };
   };
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+
+    extraPackages = with pkgs; [
+      lua-language-server
+      rnix-lsp
+    ];
+
+  };
+
 
 
 }
