@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs,inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -21,6 +21,11 @@
     obsidian
     nerdfonts
     ripgrep
+    inputs.devenv.packages."${pkgs.system}".devenv
+    cachix
+    slack
+    mysql-workbench
+    vscodium
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -38,6 +43,11 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+   programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -120,6 +130,8 @@
     extraPackages = with pkgs; [
       lua-language-server
       rnix-lsp
+      xclip
+      wl-clipboard
     ];
 
   };

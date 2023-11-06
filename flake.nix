@@ -5,10 +5,16 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
+    devenv.url = "github:cachix/devenv/latest";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
-  let
+  outputs = { 
+    self,
+    nixpkgs, 
+    home-manager, 
+    ... } @ inputs: let
+    inherit (self) outputs;
+
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
@@ -26,6 +32,7 @@
 	  modules = [
 	    ./users/T0modachi/home.nix
 	  ];
+    extraSpecialArgs = {inherit inputs outputs;};
       };
 
        jvergara-buk = home-manager.lib.homeManagerConfiguration {
