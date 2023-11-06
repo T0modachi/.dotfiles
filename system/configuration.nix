@@ -10,6 +10,12 @@
       ./hardware-configuration.nix
     ];
 
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   # JVV nix flakes following https://www.youtube.com/watch?v=mJbQ--iBc1U&t=2s
   nix.package = pkgs.nixFlakes;
   nix.extraOptions = ''
@@ -100,7 +106,7 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
    users.users.T0modachi= {
      isNormalUser = true;
      initialPassword = "passwd";
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
      ];
    };
@@ -108,7 +114,7 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
    users.users.jvergara-buk = {
      isNormalUser = true;
      initialPassword = "passwd";
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
      packages = with pkgs; [
      ];
    };
