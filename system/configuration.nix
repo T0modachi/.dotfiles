@@ -135,6 +135,7 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
      gnupg
      firefox
      libsForQt5.kdeconnect-kde
+     docker-compose
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
