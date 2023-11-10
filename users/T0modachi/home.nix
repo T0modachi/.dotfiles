@@ -71,6 +71,7 @@
      ".config/nvim/lua/custom/chadrc.lua".source = ./nvim-custom/chadrc.lua;
      ".config/nvim/lua/custom/plugins.lua".source = ./nvim-custom/plugins.lua;
      ".config/nvim/lua/custom/configs/lspconfig.lua".source = ./nvim-custom/configs/lspconfig.lua;
+     ".config/nvim/lua/custom/configs/overrides.lua".source = ./nvim-custom/configs/overrides.lua;
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a

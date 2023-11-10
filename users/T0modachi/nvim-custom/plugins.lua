@@ -1,3 +1,6 @@
+
+local overrides = require("custom.configs.overrides")
+
 local plugins = {
  {
    "williamboman/mason.nvim",
@@ -18,7 +21,34 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
-  {"github/copilot.vim", lazy = false},
+  -- {"github/copilot.vim", lazy = false},
+  {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    opts = overrides.copilot,
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
+    },
+    opts = {
+      sources = {
+        { name = "nvim_lsp", group_index = 2 },
+        { name = "copilot",  group_index = 2 },
+        { name = "luasnip",  group_index = 2 },
+        { name = "buffer",   group_index = 2 },
+        { name = "nvim_lua", group_index = 2 },
+        { name = "path",     group_index = 2 },
+      },
+    },
+  },
 }
 
 return plugins
