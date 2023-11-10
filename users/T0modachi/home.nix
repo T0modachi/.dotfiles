@@ -25,7 +25,8 @@
     cachix
     slack
     mysql-workbench
-    vscodium
+    nodejs # for lsp support 
+    phpactor # for php lsp
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -67,6 +68,9 @@
      ".config/nvim/lua/plugins/configs/nvimtree.lua".source = ./../../NvChad/lua/plugins/configs/nvimtree.lua;
      ".config/nvim/lua/plugins/configs/lspconfig.lua".source = ./../../NvChad/lua/plugins/configs/lspconfig.lua;
      ".config/nvim/lua/plugins/init.lua".source = ./../../NvChad/lua/plugins/init.lua;
+     ".config/nvim/lua/custom/chadrc.lua".source = ./nvim-custom/chadrc.lua;
+     ".config/nvim/lua/custom/plugins.lua".source = ./nvim-custom/plugins.lua;
+     ".config/nvim/lua/custom/configs/lspconfig.lua".source = ./nvim-custom/configs/lspconfig.lua;
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -130,6 +134,7 @@
     extraPackages = with pkgs; [
       lua-language-server
       rnix-lsp
+      ##nodePackages.typescript-language-server
       xclip
       wl-clipboard
     ];
