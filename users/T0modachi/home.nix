@@ -27,6 +27,7 @@
     mysql-workbench
     nodejs # for lsp support 
     phpactor # for php lsp
+    calibre
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
