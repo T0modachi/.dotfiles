@@ -8,6 +8,7 @@ local servers = {
         --"prettier",
         "rnix",
         "tsserver",
+        --"angularls",
         "phpactor",
 }
 

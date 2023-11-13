@@ -10,12 +10,19 @@ local plugins = {
         "prettier",
         "rnix-lsp",
         "typescript-language-server",
+        --"angular-language-server",
         --"phpactor" installed by nix on home-manager
       },
     },
     },
       {
     "neovim/nvim-lspconfig",
+       dependencies = {
+       "jose-elias-alvarez/null-ls.nvim",
+       config = function()
+         require "custom.configs.null-ls"
+       end,
+     },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
