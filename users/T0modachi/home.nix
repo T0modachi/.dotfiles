@@ -28,6 +28,7 @@
     nodejs # for lsp support 
     phpactor # for php lsp
     calibre
+    ollama
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
