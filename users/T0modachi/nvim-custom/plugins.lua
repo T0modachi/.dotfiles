@@ -56,6 +56,20 @@ local plugins = {
       },
     },
   },
+  {
+    "David-Kunz/gen.nvim",
+    configs = function()
+      require("gen").model = 'codellama'
+    end,
+  },
+  -- {
+  --   "sourcegraph/sg.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --
+  --   -- If you have a recent version of lazy.nvim, you don't need to add this!
+  --   build = "nvim -l build/init.lua",
+  -- },
+  --
 }
 
 return plugins
