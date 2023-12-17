@@ -39,6 +39,7 @@
           pkgs = import nixpkgs {
 	    inherit system;
 	    config.allowUnfree = true;
+      config.permittedInsecurePackages = [ "electron-25.9.0" ];
 	  };
 	  modules = [
 	    ./users/jvergara-buk/home.nix
