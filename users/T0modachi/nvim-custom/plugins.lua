@@ -10,6 +10,7 @@ local plugins = {
         "prettier",
         "rnix-lsp",
         "typescript-language-server",
+        "python-lsp-server",
         --"angular-language-server",
         --"phpactor" installed by nix on home-manager
       },
@@ -29,11 +30,11 @@ local plugins = {
     end,
   },
   -- {"github/copilot.vim", lazy = false},
-  {
-    "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
-    opts = overrides.copilot,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = "InsertEnter",
+  --   opts = overrides.copilot,
+  -- },
 
   {
     "hrsh7th/nvim-cmp",
@@ -48,7 +49,7 @@ local plugins = {
     opts = {
       sources = {
         { name = "nvim_lsp", group_index = 2 },
-        { name = "copilot",  group_index = 2 },
+   --     { name = "copilot",  group_index = 2 },
         { name = "luasnip",  group_index = 2 },
         { name = "buffer",   group_index = 2 },
         { name = "nvim_lua", group_index = 2 },

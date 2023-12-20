@@ -10,6 +10,7 @@ local servers = {
         "tsserver",
         --"angularls",
         "phpactor",
+        "pylsp",
 }
 
 for _, lsp in ipairs(servers) do
