@@ -10,7 +10,7 @@ local plugins = {
         "prettier",
         "rnix-lsp",
         "typescript-language-server",
-        "pyright-langserver",
+        "pyright",
         --"angular-language-server",
         --"phpactor" installed by nix on home-manager
       },
