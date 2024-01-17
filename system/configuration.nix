@@ -171,6 +171,15 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
    networking.firewall.allowedTCPPorts = [ 8384 22000 ];
    networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
+   services = {
+    syncthing = {
+        enable = true;
+        user = "T0modachi";
+        dataDir = "/home/T0modachi/Sync";    # Default folder for new synced folders
+        configDir = "/home/T0modachi/.config/syncthing";   # Folder for Syncthing's settings and keys
+    };
+};
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
