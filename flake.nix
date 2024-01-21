@@ -45,6 +45,7 @@
 	  modules = [
 	    ./users/jvergara-buk/home.nix
 	  ];
+    extraSpecialArgs = {inherit inputs outputs;};
       };
 
     };
