@@ -24,7 +24,7 @@
     inputs.devenv.packages."${pkgs.system}".devenv
     cachix
     slack
-    mysql-workbench
+    #mysql-workbench #broken
     nodejs # for lsp support 
     phpactor # for php lsp
     calibre
@@ -32,6 +32,7 @@
     appimage-run
     brave 
     logseq
+    ruby-lsp 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello

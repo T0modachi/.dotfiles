@@ -11,6 +11,7 @@ local servers = {
         --"angularls",
         "phpactor",
         "pyright",
+        "ruby_ls",
 }
 
 for _, lsp in ipairs(servers) do

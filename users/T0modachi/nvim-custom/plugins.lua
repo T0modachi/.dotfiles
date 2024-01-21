@@ -11,6 +11,7 @@ local plugins = {
         "rnix-lsp",
         "typescript-language-server",
         "pyright",
+       -- "ruby-lsp", installed by nix on home-manager
         --"angular-language-server",
         --"phpactor" installed by nix on home-manager
       },
