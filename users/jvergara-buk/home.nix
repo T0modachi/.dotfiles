@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -30,6 +30,11 @@
     nerdfonts
     ripgrep
     chromium
+    inputs.devenv.packages."${pkgs.system}".devenv
+    cachix
+    nodejs # for lsp support 
+    ollama
+    ruby-lsp 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -47,6 +52,12 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
+
+   programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -66,6 +77,12 @@
      ".config/nvim/lua/plugins/configs/nvimtree.lua".source = ./../../NvChad/lua/plugins/configs/nvimtree.lua;
      ".config/nvim/lua/plugins/configs/lspconfig.lua".source = ./../../NvChad/lua/plugins/configs/lspconfig.lua;
      ".config/nvim/lua/plugins/init.lua".source = ./../../NvChad/lua/plugins/init.lua;
+     ".config/nvim/lua/custom/chadrc.lua".source = ./nvim-custom/chadrc.lua;
+     ".config/nvim/lua/custom/plugins.lua".source = ./nvim-custom/plugins.lua;
+     ".config/nvim/lua/custom/configs/lspconfig.lua".source = ./nvim-custom/configs/lspconfig.lua;
+     ".config/nvim/lua/custom/configs/overrides.lua".source = ./nvim-custom/configs/overrides.lua;
+     ".config/nvim/lua/custom/configs/null-ls.lua".source = ./nvim-custom/configs/null-ls.lua;
+
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -95,6 +112,12 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.bash.enable = true;
+  programs.bash.bashrcExtra = ''
+    eval "$(direnv hook bash)"
+  '';
+
 
   programs.git = {
     enable = true;
@@ -145,7 +168,9 @@
     extraPackages = with pkgs; [
       lua-language-server
       rnix-lsp
-    ];
+      xclip
+      wl-clipboard
+      ];
 
   };
 
