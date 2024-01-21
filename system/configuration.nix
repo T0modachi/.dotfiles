@@ -135,6 +135,7 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
      gnupg
      firefox
      libsForQt5.kdeconnect-kde
+     gnumake
      docker-compose
    ];
 
