@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -19,7 +20,7 @@
   # JVV nix flakes following https://www.youtube.com/watch?v=mJbQ--iBc1U&t=2s
   nix.package = pkgs.nixFlakes;
   nix.extraOptions = ''
-   experimental-features = nix-command flakes
+    experimental-features = nix-command flakes
   '';
 
   # Use the systemd-boot EFI boot loader.
@@ -35,10 +36,10 @@
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-#  time.timeZone = "America/Santiago";
+  #  time.timeZone = "America/Santiago";
   time.timeZone = "Europe/Madrid";
 
   # Configure network proxy if necessary
@@ -46,26 +47,26 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-   i18n.defaultLocale = "es_CL.UTF-8";
+  i18n.defaultLocale = "es_CL.UTF-8";
 
-   i18n.extraLocaleSettings = {
-     LC_ADDRESS = "es_CL.UTF-8";
-     LC_IDENTIFICATION = "es_CL.UTF-8";
-     LC_MEASUREMENT = "es_CL.UTF-8";
-     LC_MONETARY = "es_CL.UTF-8";
-     LC_NAME = "es_CL.UTF-8";
-     LC_NUMERIC = "es_CL.UTF-8";
-     LC_PAPER = "es_CL.UTF-8";
-     LC_TELEPHONE = "es_CL.UTF-8";
-     LC_TIME = "es_CL.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "es_CL.UTF-8";
+    LC_IDENTIFICATION = "es_CL.UTF-8";
+    LC_MEASUREMENT = "es_CL.UTF-8";
+    LC_MONETARY = "es_CL.UTF-8";
+    LC_NAME = "es_CL.UTF-8";
+    LC_NUMERIC = "es_CL.UTF-8";
+    LC_PAPER = "es_CL.UTF-8";
+    LC_TELEPHONE = "es_CL.UTF-8";
+    LC_TIME = "es_CL.UTF-8";
   };
 
 
-   #console = {
-   #  font = "Lat2-Terminus16";
-   #  keyMap = "la-latin1";
-   #  useXkbConfig = true; # use xkbOptions in tty.
-   #};
+  #console = {
+  #  font = "Lat2-Terminus16";
+  #  keyMap = "la-latin1";
+  #  useXkbConfig = true; # use xkbOptions in tty.
+  #};
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -76,19 +77,19 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-# jvv: incluyo soporte ntfs para montar pendrive
-boot.supportedFilesystems = [ "ntfs" ];
+  # jvv: incluyo soporte ntfs para montar pendrive
+  boot.supportedFilesystems = [ "ntfs" ];
 
-#jvv: para limitar el maximo de generaciones en boot
-boot.loader.systemd-boot.configurationLimit = 5;
+  #jvv: para limitar el maximo de generaciones en boot
+  boot.loader.systemd-boot.configurationLimit = 5;
 
-# jvv: para instalar paquetes unfree
-nixpkgs.config.allowUnfree = true;
-nixpkgs.config.allowUnfreePredicate = (pkg: true);
-  
+  # jvv: para instalar paquetes unfree
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = (pkg: true);
+
 
   # Configure keymap in X11
-   services.xserver.layout = "latam";
+  services.xserver.xkb.layout = "latam";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
   # Configure console keymap
@@ -103,41 +104,41 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.T0modachi= {
-     isNormalUser = true;
-     initialPassword = "passwd";
-     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-     ];
-   };
+  users.users.T0modachi = {
+    isNormalUser = true;
+    initialPassword = "passwd";
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+    ];
+  };
 
-   users.users.jvergara-buk = {
-     isNormalUser = true;
-     initialPassword = "passwd";
-     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-     ];
-   };
+  users.users.jvergara-buk = {
+    isNormalUser = true;
+    initialPassword = "passwd";
+    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+    ];
+  };
 
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
-     home-manager # jvv: incluyo segun instrucciones de https://www.youtube.com/watch?v=FcC2dzecovw
-     gcc
-     rustc
-     cargo
-     lua
-     git
-     git-crypt
-     gnupg
-     firefox
-     libsForQt5.kdeconnect-kde
-     gnumake
-     docker-compose
-   ];
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    home-manager # jvv: incluyo segun instrucciones de https://www.youtube.com/watch?v=FcC2dzecovw
+    gcc
+    rustc
+    cargo
+    lua
+    git
+    git-crypt
+    gnupg
+    firefox
+    libsForQt5.kdeconnect-kde
+    gnumake
+    docker-compose
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -158,28 +159,28 @@ nixpkgs.config.allowUnfreePredicate = (pkg: true);
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-   networking.firewall = { 
-     enable = true;
-     allowedTCPPortRanges = [ 
-       { from = 1714; to = 1764; } # KDE Connect
-     ];  
-     allowedUDPPortRanges = [ 
-       { from = 1714; to = 1764; } # KDE Connect
-     ];  
-   };  
+  networking.firewall = {
+    enable = true;
+    allowedTCPPortRanges = [
+      { from = 1714; to = 1764; } # KDE Connect
+    ];
+    allowedUDPPortRanges = [
+      { from = 1714; to = 1764; } # KDE Connect
+    ];
+  };
 
-   # Syncthing ports
-   networking.firewall.allowedTCPPorts = [ 8384 22000 ];
-   networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  # Syncthing ports
+  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
-   services = {
+  services = {
     syncthing = {
-        enable = true;
-        user = "T0modachi";
-        dataDir = "/home/T0modachi/Sync";    # Default folder for new synced folders
-        configDir = "/home/T0modachi/.config/syncthing";   # Folder for Syncthing's settings and keys
+      enable = true;
+      user = "T0modachi";
+      dataDir = "/home/T0modachi/Sync"; # Default folder for new synced folders
+      configDir = "/home/T0modachi/.config/syncthing"; # Folder for Syncthing's settings and keys
     };
-};
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
