@@ -24,7 +24,7 @@
     inputs.devenv.packages."${pkgs.system}".devenv
     cachix
     slack
-    #mysql-workbench #broken
+    mysql-workbench #broken
     nodejs # for lsp support 
     phpactor # for php lsp
     calibre
@@ -36,6 +36,7 @@
     fzf
     fd
     lazygit
+    eclipses.eclipse-modeling # for the old times
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
