@@ -1,4 +1,4 @@
-{ config, pkgs,inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -30,9 +30,9 @@
     calibre
     ollama
     appimage-run
-    brave 
+    brave
     logseq
-    ruby-lsp 
+    ruby-lsp
     fzf
     fd
     lazygit
@@ -55,7 +55,7 @@
     # '')
   ];
 
-   programs.direnv = {
+  programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
   };
@@ -63,26 +63,19 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-     ".config/nvim/init.lua".source = ./../../NvChad/init.lua;
-     ".config/nvim/lua/core/utils.lua".source = ./../../NvChad/lua/core/utils.lua;
-     ".config/nvim/lua/core/default_config.lua".source = ./../../NvChad/lua/core/default_config.lua;
-     ".config/nvim/lua/core/bootstrap.lua".source = ./../../NvChad/lua/core/bootstrap.lua;
-     ".config/nvim/lua/core/mappings.lua".source = ./../../NvChad/lua/core/mappings.lua;
-     ".config/nvim/lua/core/init.lua".source = ./../../NvChad/lua/core/init.lua;
-     ".config/nvim/lua/plugins/configs/lazy_nvim.lua".source = ./../../NvChad/lua/plugins/configs/lazy_nvim.lua;
-     ".config/nvim/lua/plugins/configs/mason.lua".source = ./../../NvChad/lua/plugins/configs/mason.lua;
-     ".config/nvim/lua/plugins/configs/telescope.lua".source = ./../../NvChad/lua/plugins/configs/telescope.lua;
-     ".config/nvim/lua/plugins/configs/others.lua".source = ./../../NvChad/lua/plugins/configs/others.lua;
-     ".config/nvim/lua/plugins/configs/treesitter.lua".source = ./../../NvChad/lua/plugins/configs/treesitter.lua;
-     ".config/nvim/lua/plugins/configs/cmp.lua".source = ./../../NvChad/lua/plugins/configs/cmp.lua;
-     ".config/nvim/lua/plugins/configs/nvimtree.lua".source = ./../../NvChad/lua/plugins/configs/nvimtree.lua;
-     ".config/nvim/lua/plugins/configs/lspconfig.lua".source = ./../../NvChad/lua/plugins/configs/lspconfig.lua;
-     ".config/nvim/lua/plugins/init.lua".source = ./../../NvChad/lua/plugins/init.lua;
-     ".config/nvim/lua/custom/chadrc.lua".source = ./nvim-custom/chadrc.lua;
-     ".config/nvim/lua/custom/plugins.lua".source = ./nvim-custom/plugins.lua;
-     ".config/nvim/lua/custom/configs/lspconfig.lua".source = ./nvim-custom/configs/lspconfig.lua;
-     ".config/nvim/lua/custom/configs/overrides.lua".source = ./nvim-custom/configs/overrides.lua;
-     ".config/nvim/lua/custom/configs/null-ls.lua".source = ./nvim-custom/configs/null-ls.lua;
+    ".config/nvim/init.lua".source = ./../../starter/init.lua;
+    ".config/nvim/.neoconf.json".source = ./../../starter/.neoconf.json;
+    ".config/nvim/stylua.toml".source = ./../../starter/stylua.toml;
+    ".config/nvim/lua/config/lazy.lua".source = ./../../starter/lua/config/lazy.lua;
+    ".config/nvim/lua/config/keymaps.lua".source = ./../../starter/lua/config/keymaps.lua;
+    ".config/nvim/lua/config/options.lua".source = ./../../starter/lua/config/options.lua;
+    ".config/nvim/lua/config/autocmds.lua".source = ./../../starter/lua/config/autocmds.lua;
+    ".config/nvim/lua/plugins/python.lua".source = ./nvim-custom/plugins/python.lua;
+    ".config/nvim/lua/plugins/test.lua".source = ./nvim-custom/plugins/test.lua;
+    ".config/nvim/lua/plugins/nvim-dap.lua".source = ./nvim-custom/plugins/nvim-dap.lua;
+    ".config/nvim/lua/plugins/wich-key.lua".source = ./nvim-custom/plugins/wich-key.lua;
+
+
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
