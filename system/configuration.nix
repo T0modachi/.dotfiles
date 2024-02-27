@@ -138,6 +138,8 @@
     libsForQt5.kdeconnect-kde
     gnumake
     docker-compose
+    kitty
+    ollama
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

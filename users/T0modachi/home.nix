@@ -28,7 +28,6 @@
     nodejs # for lsp support 
     phpactor # for php lsp
     calibre
-    ollama
     appimage-run
     brave
     logseq
@@ -37,7 +36,6 @@
     fd
     lazygit
     eclipses.eclipse-modeling # for the old times
-    kitty
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -64,19 +62,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/nvim/init.lua".source = ./../../starter/init.lua;
-    ".config/nvim/.neoconf.json".source = ./../../starter/.neoconf.json;
-    ".config/nvim/stylua.toml".source = ./../../starter/stylua.toml;
-    ".config/nvim/lua/config/lazy.lua".source = ./../../starter/lua/config/lazy.lua;
-    ".config/nvim/lua/config/keymaps.lua".source = ./../../starter/lua/config/keymaps.lua;
-    ".config/nvim/lua/config/options.lua".source = ./../../starter/lua/config/options.lua;
-    ".config/nvim/lua/config/autocmds.lua".source = ./../../starter/lua/config/autocmds.lua;
-    ".config/nvim/lua/plugins/python.lua".source = ./nvim-custom/plugins/python.lua;
-    ".config/nvim/lua/plugins/test.lua".source = ./nvim-custom/plugins/test.lua;
-    ".config/nvim/lua/plugins/nvim-dap.lua".source = ./nvim-custom/plugins/nvim-dap.lua;
-    ".config/nvim/lua/plugins/wich-key.lua".source = ./nvim-custom/plugins/wich-key.lua;
-
-
+    ".config/nvim".source = ./../../nvim;
+    ".config/nvim".recursive = true;
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
