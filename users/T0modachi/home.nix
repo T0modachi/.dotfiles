@@ -129,6 +129,7 @@
     vimdiffAlias = true;
 
     extraPackages = with pkgs; [
+      vimPlugins.telescope-fzf-native-nvim
       lua-language-server
       rnix-lsp
       ##nodePackages.typescript-language-server
