@@ -140,6 +140,16 @@
     docker-compose
     kitty
     ollama
+    unzip
+    unrar
+    nerdfonts
+    ripgrep
+    fzf
+    fd
+    ruby-lsp
+    phpactor # for php lsp
+    nodejs # for lsp support 
+    ruby # for lsp support
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

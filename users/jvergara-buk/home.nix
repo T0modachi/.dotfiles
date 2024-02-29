@@ -26,19 +26,12 @@
     kubectl
     libreoffice
     vlc
-    unrar
-    nerdfonts
-    ripgrep
     chromium
     inputs.devenv.packages."${pkgs.system}".devenv
     cachix
-    nodejs # for lsp support 
     ruby-lsp
-    fzf
-    fd
     lazygit
     glamoroustoolkit
-    unzip
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -151,6 +144,8 @@
     vimdiffAlias = true;
 
     extraPackages = with pkgs; [
+      vimPlugins.telescope-fzf-native-nvim
+      vimPlugins.nvim-treesitter
       lua-language-server
       rnix-lsp
       xclip

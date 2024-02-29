@@ -19,23 +19,16 @@
   # environment.
   home.packages = with pkgs;[
     obsidian
-    nerdfonts
-    ripgrep
     inputs.devenv.packages."${pkgs.system}".devenv
     cachix
     slack
     mysql-workbench #broken
-    nodejs # for lsp support 
-    phpactor # for php lsp
     calibre
     appimage-run
     brave
     logseq
-    ruby-lsp
-    fzf
-    fd
     lazygit
-    eclipses.eclipse-modeling # for the old times
+    #eclipses.eclipse-modeling # for the old times
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -130,6 +123,7 @@
 
     extraPackages = with pkgs; [
       vimPlugins.telescope-fzf-native-nvim
+      vimPlugins.nvim-treesitter
       lua-language-server
       rnix-lsp
       ##nodePackages.typescript-language-server
