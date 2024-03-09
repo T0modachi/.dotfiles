@@ -136,7 +136,6 @@
 
   programs.tmux = {
     enable = true;
-    #sensibleOnTop = false; ## for multi-function keys
     plugins = with pkgs; [
       tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator

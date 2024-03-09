@@ -154,6 +154,19 @@
 
   };
 
+  programs.tmux = {
+    enable = true;
+    plugins = with pkgs; [
+      tmuxPlugins.sensible
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.catppuccin
+      tmuxPlugins.yank
+    ];
+
+    extraConfig = ''
+      ${builtins.readFile ./../../tmux/tmux.conf} 
+    '';
+  };
 
 
 }
