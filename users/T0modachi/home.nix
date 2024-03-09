@@ -58,6 +58,7 @@
     ".config/nvim".source = ./../../nvim;
     ".config/nvim".recursive = true;
 
+    ".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -131,6 +132,17 @@
       wl-clipboard
     ];
 
+  };
+
+  programs.tmux = {
+    enable = true;
+    #sensibleOnTop = false; ## for multi-function keys
+    plugins = with pkgs; [
+      tmuxPlugins.sensible
+      tmuxPlugins.vim-tmux-navigator
+      tmuxPlugins.catppuccin
+      tmuxPlugins.yank
+    ];
   };
 
 
