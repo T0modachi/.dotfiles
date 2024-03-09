@@ -58,7 +58,7 @@
     ".config/nvim".source = ./../../nvim;
     ".config/nvim".recursive = true;
 
-    ".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
+    #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -143,6 +143,10 @@
       tmuxPlugins.catppuccin
       tmuxPlugins.yank
     ];
+
+    extraConfig = ''
+      ${builtins.readFile ./../../tmux/tmux.conf} 
+    '';
   };
 
 
