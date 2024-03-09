@@ -29,8 +29,6 @@
     chromium
     inputs.devenv.packages."${pkgs.system}".devenv
     cachix
-    ruby-lsp
-    lazygit
     glamoroustoolkit
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -61,6 +59,7 @@
   home.file = {
     ".config/nvim".source = ./../../nvim;
     ".config/nvim".recursive = true;
+    ".config/starship.toml".source = ../../starship/starship.toml;
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -91,10 +90,13 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.bash.enable = true;
-  programs.bash.bashrcExtra = ''
-    eval "$(direnv hook bash)"
-  '';
+  programs.bash = {
+    enable = true;
+    initExtra = "tmux";
+    bashrcExtra = ''
+      eval "$(direnv hook bash)"
+    '';
+  };
 
 
   programs.git = {
@@ -168,5 +170,25 @@
     '';
   };
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -la";
+    };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "thefuck" "tmux" ];
+    };
+    history.size = 10000;
+    history.path = "${config.xdg.dataHome}/zsh/history";
+    initExtra = ''
+      eval "$(starship init zsh)"
+      eval "$(direnv hook zsh)"
+    '';
+  };
 
 }

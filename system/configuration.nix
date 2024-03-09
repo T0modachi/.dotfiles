@@ -120,6 +120,7 @@
     ];
   };
 
+  programs.zsh.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -150,6 +151,9 @@
     phpactor # for php lsp
     nodejs # for lsp support 
     ruby # for lsp support
+    starship
+    thefuck
+    lazygit
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
