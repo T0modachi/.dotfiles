@@ -73,9 +73,17 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
 
-  # Enable the Plasma 5 Desktop Environment.
+  # Enable the Plasma 6 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma6.enable = true;
+
+  # hyprland 
+  programs.hyprland = {
+    # Install the packages from nixpkgs
+    enable = true;
+    # Whether to enable XWayland
+    xwayland.enable = true;
+  };
 
   # jvv: incluyo soporte ntfs para montar pendrive
   boot.supportedFilesystems = [ "ntfs" ];

@@ -57,6 +57,7 @@
     ".config/nvim".source = ./../../nvim;
     ".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
+    #".config/hypr/hyprland.conf".text = ''${builtins.readFile ../../hypr/hyprland.conf}'';
 
     #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
@@ -170,6 +171,21 @@
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
     '';
+  };
+
+  wayland.windowManager.hyprland = {
+    # Whether to enable Hyprland wayland compositor
+    enable = true;
+    # The hyprland package to use
+    package = pkgs.hyprland;
+    # Whether to enable XWayland
+    xwayland.enable = true;
+
+    # Optional
+    # Whether to enable hyprland-session.target on hyprland startup
+    systemd.enable = true;
+
+    extraConfig = ''${builtins.readFile ../../hypr/hyprland.conf}'';
   };
 
 }
