@@ -84,6 +84,8 @@
     # Whether to enable XWayland
     xwayland.enable = true;
   };
+  #wayland support for electron based apps and chromium
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # jvv: incluyo soporte ntfs para montar pendrive
   boot.supportedFilesystems = [ "ntfs" ];
