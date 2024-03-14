@@ -22,7 +22,7 @@
     inputs.devenv.packages."${pkgs.system}".devenv
     cachix
     slack
-    #mysql-workbench --broken
+    dbeaver
     calibre
     appimage-run
     brave
