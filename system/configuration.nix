@@ -75,7 +75,8 @@
 
   # Enable the Plasma 6 Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+  #services.xserver.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # hyprland 
   programs.hyprland = {
@@ -161,6 +162,10 @@
     phpactor # for php lsp
     nodejs # for lsp support 
     ruby # for lsp support
+    nil # lsp for nix 
+    ruff-lsp # python lsp
+    lua-language-server # lua lsp
+    stylua # for null-ls problem
     starship
     thefuck
     lazygit

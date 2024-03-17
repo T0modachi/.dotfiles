@@ -127,10 +127,10 @@
     vimdiffAlias = true;
 
     extraPackages = with pkgs; [
+      vimPlugins.codeium-nvim
       vimPlugins.telescope-fzf-native-nvim
       vimPlugins.nvim-treesitter
       lua-language-server
-      rnix-lsp
       ##nodePackages.typescript-language-server
       xclip
       wl-clipboard
@@ -152,10 +152,11 @@
     '';
   };
 
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
     shellAliases = {

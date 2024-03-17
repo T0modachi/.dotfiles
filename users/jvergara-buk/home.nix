@@ -149,7 +149,6 @@
       vimPlugins.telescope-fzf-native-nvim
       vimPlugins.nvim-treesitter
       lua-language-server
-      rnix-lsp
       xclip
       wl-clipboard
     ];
