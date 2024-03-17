@@ -2,7 +2,7 @@ return   {
     "David-Kunz/gen.nvim",
     lazy = false,
     opts = {
-        model = "codellama", -- The default model to use.
+        model = "starcoder2", -- The default model to use.
         display_mode = "float", -- The display mode. Can be "float" or "split".
         show_prompt = false, -- Shows the Prompt submitted to Ollama.
         show_model = false, -- Displays which model you are using at the beginning of your chat session.
