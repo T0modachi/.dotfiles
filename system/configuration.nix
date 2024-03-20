@@ -158,18 +158,9 @@
     ripgrep
     fzf
     fd
-    ruby-lsp
-    phpactor # for php lsp
-    nodejs # for lsp support 
-    ruby # for lsp support
-    nil # lsp for nix 
-    ruff-lsp # python lsp
-    lua-language-server # lua lsp
-    stylua # for null-ls problem
     starship
     thefuck
     lazygit
-    python3
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
