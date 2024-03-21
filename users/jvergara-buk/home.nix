@@ -178,6 +178,7 @@
       ruby-lsp
       python311Packages.python-lsp-server
       python311Packages.python-lsp-ruff
+      marksman
 
       # Formatters
       nodePackages.prettier
@@ -187,7 +188,6 @@
       stylua
     ];
 
-    ];
 
   };
 
