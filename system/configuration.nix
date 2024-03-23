@@ -159,7 +159,7 @@
     fzf
     fd
     starship
-    thefuck
+#    thefuck
     lazygit
   ];
 
