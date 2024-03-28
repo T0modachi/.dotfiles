@@ -91,7 +91,6 @@
 
   programs.bash = {
     enable = true;
-    initExtra = "tmux";
     bashrcExtra = ''
       eval "$(direnv hook bash)"
     '';
@@ -130,7 +129,6 @@
     withRuby = true;
 
     extraPackages = with pkgs; [
-      vimPlugins.codeium-nvim
       vimPlugins.telescope-fzf-native-nvim
       vimPlugins.nvim-treesitter
       xclip
