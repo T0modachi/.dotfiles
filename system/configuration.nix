@@ -133,6 +133,8 @@
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+  
+  programs.steam.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
