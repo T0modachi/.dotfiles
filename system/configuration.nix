@@ -133,8 +133,6 @@
 
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
-  
-  programs.steam.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -164,7 +162,6 @@
     starship
     thefuck
     lazygit
-    steam-run
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
