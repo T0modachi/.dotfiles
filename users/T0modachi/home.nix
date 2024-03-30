@@ -146,6 +146,11 @@
       nodePackages.yaml-language-server
       nodePackages.dockerfile-language-server-nodejs
 
+
+      vimPlugins.gitsigns-nvim
+      vimPlugins.todo-comments-nvim
+      vimPlugins.vim-illuminate
+
       # Includes css, html and json language server
       # pkgs.vscode-ls
       nodePackages.vscode-langservers-extracted
