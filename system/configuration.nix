@@ -162,6 +162,22 @@
     starship
     thefuck
     lazygit
+    sesh
+  ];
+
+  programs.nix-ld.enable = true;
+
+    # Sets up all the libraries to load
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    zlib
+    fuse3
+    icu
+    zlib
+    nss
+    openssl
+    curl
+    expat
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
