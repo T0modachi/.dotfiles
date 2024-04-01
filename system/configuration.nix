@@ -163,6 +163,7 @@
     thefuck
     lazygit
     sesh
+    zoxide
   ];
 
   programs.nix-ld.enable = true;
