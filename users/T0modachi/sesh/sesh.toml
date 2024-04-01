@@ -1,0 +1,4 @@
+[[session]]
+name = "veria-cloud"
+path = "~/work/veria-cloud"
+startup_command = "ls"
