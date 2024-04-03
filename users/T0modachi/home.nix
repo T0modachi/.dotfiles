@@ -57,7 +57,7 @@
     ".config/nvim".source = ./../../nvim;
     ".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
-    ".config/sesh.toml".source = ./sesh/sesh.toml;
+    ".config/sesh/sesh.toml".source = ./sesh/sesh.toml;
     #".config/hypr/hyprland.conf".text = ''${builtins.readFile ../../hypr/hyprland.conf}'';
 
     #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
