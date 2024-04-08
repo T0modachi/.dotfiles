@@ -27,6 +27,7 @@
     appimage-run
     brave
     logseq
+    libreoffice
     #eclipses.eclipse-modeling # for the old times
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
