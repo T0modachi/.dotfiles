@@ -6,5 +6,5 @@ return {
   { import = "lazyvim.plugins.extras.lang.python" },
   { import = "lazyvim.plugins.extras.formatting.prettier" },
   { import = "lazyvim.plugins.extras.lsp.none-ls" },
-  -- { import = "lazyvim.plugins.extras.lang.ruby" }, entra en conflicto con python si se istala por aca
+  { import = "lazyvim.plugins.extras.lang.ruby" },
 }
