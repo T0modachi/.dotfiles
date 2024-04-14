@@ -73,8 +73,7 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
 
-  # Enable the Plasma 6 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true;
   #services.xserver.desktopManager.plasma6.enable = true;
   services.desktopManager.plasma6.enable = true;
 
