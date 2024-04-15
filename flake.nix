@@ -42,7 +42,7 @@
 	    inherit system;
 	    config.allowUnfree = true;
       config.allowUnfreePredicate = (_: true);
-      config.permittedInsecurePackages = [ "electron-25.9.0" ];
+      config.permittedInsecurePackages = [ "electron-25.9.0" "openssl-1.1.1w" ];
 	  };
 	  modules = [
 	    ./users/jvergara-buk/home.nix
