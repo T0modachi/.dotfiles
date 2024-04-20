@@ -1,7 +1,7 @@
 return {
-    "David-Kunz/gen.nvim",
-    lazy = false,
-    opts = {
-        model = "starcoder2" -- The default model to use.
-    }
+  "David-Kunz/gen.nvim",
+  lazy = false,
+  opts = {
+    model = "codellama", -- The default model to use.
+  },
 }
