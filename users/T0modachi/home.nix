@@ -59,6 +59,8 @@
     ".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
     ".config/sesh/sesh.toml".source = ./sesh/sesh.toml;
+    ".config/sesh/veria-cloud.sh".source = ./sesh/veria-cloud.sh;
+
     #".config/hypr/hyprland.conf".text = ''${builtins.readFile ../../hypr/hyprland.conf}'';
 
     #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
