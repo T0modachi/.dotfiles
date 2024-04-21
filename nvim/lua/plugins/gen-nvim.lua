@@ -2,6 +2,6 @@ return {
   "David-Kunz/gen.nvim",
   lazy = false,
   opts = {
-    model = "codellama", -- The default model to use.
+    model = "llama3", -- The default model to use.
   },
 }
