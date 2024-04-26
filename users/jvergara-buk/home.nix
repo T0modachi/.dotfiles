@@ -22,7 +22,7 @@
     filezilla
     bitwarden
     obsidian
-    teleport_12
+    teleport
     kubectl
     libreoffice
     vlc
