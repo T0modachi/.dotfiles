@@ -70,6 +70,8 @@
     };
   };
 
+  powerManagement.powertop.enable = true;
+
   #GPU
   hardware.opengl.extraPackages = with pkgs; [
     rocm-opencl-icd
