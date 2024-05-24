@@ -30,7 +30,7 @@
     inputs.devenv.packages."${pkgs.system}".devenv
     cachix
     glamoroustoolkit
-    dbeaver
+    dbeaver-bin
     mob
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.

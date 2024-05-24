@@ -22,7 +22,7 @@
     inputs.devenv.packages."${pkgs.system}".devenv
     cachix
     slack
-    dbeaver
+    dbeaver-bin
     calibre
     appimage-run
     brave
