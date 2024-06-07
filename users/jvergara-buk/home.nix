@@ -32,6 +32,7 @@
     glamoroustoolkit
     dbeaver-bin
     mob
+    appimage-run
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -88,6 +89,7 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";
+    NIXPKGS_ALLOW_INSECURE=1;
   };
 
   # Let Home Manager install and manage itself.
@@ -150,6 +152,7 @@
     extraPackages = with pkgs; [
       vimPlugins.telescope-fzf-native-nvim
       vimPlugins.nvim-treesitter
+      vimPlugins.luasnip
       xclip
       wl-clipboard
       # typescript is needed because it provides the tsserver command.
@@ -158,6 +161,7 @@
       # See https://github.com/theia-ide/typescript-language-server/blob/a92027377b7ba8b1c9318baad98045e5128baa8e/server/src/lsp-server.ts#L75-L94
       nodePackages.typescript
       nodePackages.typescript-language-server
+      ruby-lsp
 
       nodePackages.bash-language-server
       # Disable it until it gets fixed, uses all your CPU
