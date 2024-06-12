@@ -23,6 +23,12 @@
     experimental-features = nix-command flakes
   '';
 
+  nix.settings = {
+  trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
+  substituters = ["https://devenv.cachix.org"];
+  trusted-users = ["root" "jvergara-buk" "T0modachi"];
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
