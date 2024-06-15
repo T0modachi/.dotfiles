@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs"; 
     devenv.url = "github:cachix/devenv/latest";
+    nixvim.url = "github:T0modachi/nixvim-config";
   };
 
   outputs = { 

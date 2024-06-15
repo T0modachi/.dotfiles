@@ -20,6 +20,7 @@
   home.packages = with pkgs;[
     obsidian
     inputs.devenv.packages."${pkgs.system}".devenv
+    inputs.nixvim.packages.${pkgs.system}.default
     cachix
     slack
     dbeaver-bin
@@ -122,64 +123,6 @@
 
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    withNodeJs = true;
-    withPython3 = true;
-    withRuby = true;
-
-    extraPackages = with pkgs; [
-      vimPlugins.telescope-fzf-native-nvim
-      vimPlugins.nvim-treesitter
-      xclip
-      wl-clipboard
-      # typescript is needed because it provides the tsserver command.
-      # First, it will try to find a tsserver installed with npm install,
-      # if not found, it will look in our $PATH
-      # See https://github.com/theia-ide/typescript-language-server/blob/a92027377b7ba8b1c9318baad98045e5128baa8e/server/src/lsp-server.ts#L75-L94
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-
-      nodePackages.bash-language-server
-      # Disable it until it gets fixed, uses all your CPU
-      # pkgs.nodePackages.vim-language-server
-      nodePackages.yaml-language-server
-      nodePackages.dockerfile-language-server-nodejs
-
-
-      vimPlugins.gitsigns-nvim
-      vimPlugins.todo-comments-nvim
-      vimPlugins.vim-illuminate
-
-      # Includes css, html and json language server
-      # pkgs.vscode-ls
-      nodePackages.vscode-langservers-extracted
-
-      # Language Servers
-      lua-language-server
-      clojure-lsp
-      gopls
-      terraform-ls
-      nil # lsp for nix 
-      phpactor
-      ruby-lsp
-      python311Packages.python-lsp-server
-      python311Packages.python-lsp-ruff
-      marksman
-
-      # Formatters
-      nodePackages.prettier
-      nixpkgs-fmt
-      rustfmt
-      terraform
-      stylua
-    ];
-
-  };
 
   programs.tmux = {
     enable = true;

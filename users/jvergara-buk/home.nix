@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "jvergara-buk";
@@ -17,7 +20,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
     slack
     filezilla
     bitwarden
@@ -28,6 +31,7 @@
     vlc
     chromium
     inputs.devenv.packages."${pkgs.system}".devenv
+    inputs.nixvim.packages.${pkgs.system}.default
     cachix
     glamoroustoolkit
     dbeaver-bin
@@ -56,7 +60,6 @@
     enable = true;
     nix-direnv.enable = true;
   };
-
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -90,7 +93,7 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";
-    NIXPKGS_ALLOW_INSECURE=1;
+    NIXPKGS_ALLOW_INSECURE = 1;
   };
 
   # Let Home Manager install and manage itself.
@@ -102,7 +105,6 @@
       eval "$(direnv hook bash)"
     '';
   };
-
 
   programs.git = {
     enable = true;
@@ -143,60 +145,6 @@
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    extraPackages = with pkgs; [
-      vimPlugins.telescope-fzf-native-nvim
-      vimPlugins.nvim-treesitter
-      vimPlugins.luasnip
-      xclip
-      wl-clipboard
-      # typescript is needed because it provides the tsserver command.
-      # First, it will try to find a tsserver installed with npm install,
-      # if not found, it will look in our $PATH
-      # See https://github.com/theia-ide/typescript-language-server/blob/a92027377b7ba8b1c9318baad98045e5128baa8e/server/src/lsp-server.ts#L75-L94
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      ruby-lsp
-
-      nodePackages.bash-language-server
-      # Disable it until it gets fixed, uses all your CPU
-      # pkgs.nodePackages.vim-language-server
-      nodePackages.yaml-language-server
-      nodePackages.dockerfile-language-server-nodejs
-
-      # Includes css, html and json language server
-      # pkgs.vscode-ls
-      nodePackages.vscode-langservers-extracted
-
-      # Language Servers
-      lua-language-server
-      clojure-lsp
-      gopls
-      terraform-ls
-      nil # lsp for nix 
-      phpactor
-      ruby-lsp
-      python311Packages.python-lsp-server
-      python311Packages.python-lsp-ruff
-      marksman
-
-      # Formatters
-      nodePackages.prettier
-      nixpkgs-fmt
-      rustfmt
-      terraform
-      stylua
-    ];
-
-
-  };
-
   programs.tmux = {
     enable = true;
     plugins = with pkgs; [
@@ -207,7 +155,7 @@
     ];
 
     extraConfig = ''
-      ${builtins.readFile ./../../tmux/tmux.conf} 
+      ${builtins.readFile ./../../tmux/tmux.conf}
     '';
   };
 
@@ -222,7 +170,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" "tmux" ];
+      plugins = ["git" "thefuck" "tmux"];
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
@@ -231,5 +179,4 @@
       eval "$(direnv hook zsh)"
     '';
   };
-
 }
