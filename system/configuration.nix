@@ -1,15 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless = {
@@ -24,9 +24,9 @@
   '';
 
   nix.settings = {
-  trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
-  substituters = ["https://devenv.cachix.org"];
-  trusted-users = ["root" "jvergara-buk" "T0modachi"];
+    trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
+    substituters = ["https://devenv.cachix.org"];
+    trusted-users = ["root" "jvergara-buk" "T0modachi"];
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -37,7 +37,6 @@
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
   };
-
 
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -67,7 +66,6 @@
     LC_TIME = "es_CL.UTF-8";
   };
 
-
   #console = {
   #  font = "Lat2-Terminus16";
   #  keyMap = "la-latin1";
@@ -76,14 +74,13 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-
+  services.xserver.videoDrivers = ["amdgpu"];
 
   services.displayManager.sddm.enable = true;
   #services.xserver.desktopManager.plasma6.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  # hyprland 
+  # hyprland
   programs.hyprland = {
     # Install the packages from nixpkgs
     enable = true;
@@ -94,15 +91,14 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # jvv: incluyo soporte ntfs para montar pendrive
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
 
   #jvv: para limitar el maximo de generaciones en boot
   boot.loader.systemd-boot.configurationLimit = 5;
 
   # jvv: para instalar paquetes unfree
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowUnfreePredicate = (pkg: true);
-
+  nixpkgs.config.allowUnfreePredicate = pkg: true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "latam";
@@ -111,10 +107,8 @@
   # Configure console keymap
   console.keyMap = "la-latin1";
 
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -123,7 +117,7 @@
   users.users.T0modachi = {
     isNormalUser = true;
     initialPassword = "passwd";
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
     ];
   };
@@ -131,7 +125,7 @@
   users.users.jvergara-buk = {
     isNormalUser = true;
     initialPassword = "passwd";
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
     ];
   };
@@ -169,11 +163,13 @@
     lazygit
     sesh
     zoxide
+    xclip
+    wl-clipboard
   ];
 
   programs.nix-ld.enable = true;
 
-    # Sets up all the libraries to load
+  # Sets up all the libraries to load
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc
     zlib
@@ -208,16 +204,22 @@
   networking.firewall = {
     enable = true;
     allowedTCPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
     ];
     allowedUDPPortRanges = [
-      { from = 1714; to = 1764; } # KDE Connect
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE Connect
     ];
   };
 
   # Syncthing ports
-  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
-  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  networking.firewall.allowedTCPPorts = [8384 22000];
+  networking.firewall.allowedUDPPorts = [22000 21027];
 
   services = {
     syncthing = {
@@ -250,6 +252,4 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-
 }
-
