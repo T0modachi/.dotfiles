@@ -165,6 +165,7 @@
     zoxide
     xclip
     wl-clipboard
+    jq
   ];
 
   programs.nix-ld.enable = true;
