@@ -16,6 +16,7 @@
   boot.initrd.kernelModules = ["dm-snapshot" "amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
+  boot.kernelParams = ["amdgpu.noretry=0"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/f8e9bd08-3ed2-4dde-874b-61ef8b206418";
@@ -63,6 +64,7 @@
 
   #GPU
   hardware.graphics.extraPackages = with pkgs; [
+    rocmPackages.rocm-runtime
     rocm-opencl-icd
     rocm-opencl-runtime
     amdvlk #vulkan
@@ -75,5 +77,9 @@
   # Only available on unstable
   hardware.graphics.extraPackages32 = with pkgs; [
     driversi686Linux.amdvlk
+  ];
+
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
 }
