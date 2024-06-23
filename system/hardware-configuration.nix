@@ -62,19 +62,18 @@
   powerManagement.enable = true;
 
   #GPU
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.extraPackages = with pkgs; [
     rocm-opencl-icd
     rocm-opencl-runtime
     amdvlk #vulkan
   ];
 
-  hardware.opengl.driSupport = true;
   # For 32 bit applications
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable32Bit = true;
 
   # For 32 bit applications
   # Only available on unstable
-  hardware.opengl.extraPackages32 = with pkgs; [
+  hardware.graphics.extraPackages32 = with pkgs; [
     driversi686Linux.amdvlk
   ];
 }
