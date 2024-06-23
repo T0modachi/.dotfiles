@@ -104,6 +104,14 @@
   services.xserver.xkb.layout = "latam";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
 
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    environmentVariables = {
+      HSA_OVERRIDE_GFX_VERSION = "9.0.12";
+    };
+  };
+
   # Configure console keymap
   console.keyMap = "la-latin1";
 
