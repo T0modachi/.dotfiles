@@ -26,7 +26,7 @@
   nix.settings = {
     trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
     substituters = ["https://devenv.cachix.org"];
-    trusted-users = ["root" "jvergara-buk" "T0modachi"];
+    trusted-users = ["root" "jvergara-buk" "T0modachi" "jvergara-ialink"];
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -131,6 +131,14 @@
   };
 
   users.users.jvergara-buk = {
+    isNormalUser = true;
+    initialPassword = "passwd";
+    extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+    ];
+  };
+
+  users.users.jvergara-ialink = {
     isNormalUser = true;
     initialPassword = "passwd";
     extraGroups = ["wheel" "docker"]; # Enable ‘sudo’ for the user.
