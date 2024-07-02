@@ -103,44 +103,44 @@
     '';
   };
 
-  #programs.git = {
-  #  enable = true;
-  #  userName = "T0modachi";
-  #  userEmail = "jvergarava@gmail.com";
+  programs.git = {
+    enable = true;
+    userName = "T0modachi";
+    userEmail = "jvergarava@gmail.com";
 
-  #  extraConfig = {
-  #    core = {
-  #      sshCommand = "ssh -i ~/.ssh/id_ed25519";
-  #    };
-  #  };
+    extraConfig = {
+      core = {
+        sshCommand = "ssh -i ~/.ssh/id_ed25519";
+      };
+    };
 
-  #  includes = [
-  #    {
-  #      contents = {
-  #        user = {
-  #          name = "Javier Vergara";
-  #          email = "jvergara@buk.cl";
-  #        };
+    includes = [
+      {
+        contents = {
+          user = {
+            name = "Javier Vergara";
+            email = "jvergara@ialink.cl";
+          };
 
-  #        core = {
-  #          sshCommand = "ssh -i ~/.ssh/id_ed25519_buk";
-  #        };
-  #      };
+          core = {
+            sshCommand = "ssh -i ~/.ssh/id_ed25519_ialink";
+          };
+        };
 
-  #      condition = "gitdir:~/work/";
-  #    }
-  #  ];
-  #};
+        condition = "gitdir:~/work/";
+      }
+    ];
+  };
 
-  #programs.ssh = {
-  #  enable = true;
-  #  matchBlocks."*" = {
-  #    extraOptions = {
-  #      AddKeysToAgent = "yes";
-  #      IdentitiesOnly = "yes";
-  #    };
-  #  };
-  #};
+  programs.ssh = {
+    enable = true;
+    matchBlocks."*" = {
+      extraOptions = {
+        AddKeysToAgent = "yes";
+        IdentitiesOnly = "yes";
+      };
+    };
+  };
 
   programs.tmux = {
     enable = true;
