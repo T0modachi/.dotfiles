@@ -1,6 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "T0modachi";
@@ -17,7 +20,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs;[
+  home.packages = with pkgs; [
     obsidian
     inputs.devenv.packages."${pkgs.system}".devenv
     inputs.nixvim.packages.${pkgs.system}.default
@@ -59,8 +62,6 @@
     ".config/nvim".source = ./../../nvim;
     ".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
-    ".config/sesh/sesh.toml".source = ./sesh/sesh.toml;
-    ".config/sesh/veria-cloud.sh".source = ./sesh/veria-cloud.sh;
 
     #".config/hypr/hyprland.conf".text = ''${builtins.readFile ../../hypr/hyprland.conf}'';
 
@@ -101,7 +102,6 @@
     '';
   };
 
-
   programs.git = {
     enable = true;
     # Configure identity
@@ -120,9 +120,7 @@
         whitespace-error-style = "22 reverse";
       };
     };
-
   };
-
 
   programs.tmux = {
     enable = true;
@@ -134,10 +132,9 @@
     ];
 
     extraConfig = ''
-      ${builtins.readFile ./../../tmux/tmux.conf} 
+      ${builtins.readFile ./../../tmux/tmux.conf}
     '';
   };
-
 
   programs.zsh = {
     enable = true;
@@ -150,7 +147,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "thefuck" "tmux" ];
+      plugins = ["git" "thefuck" "tmux"];
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
@@ -174,5 +171,4 @@
 
     extraConfig = ''${builtins.readFile ../../hypr/hyprland.conf}'';
   };
-
 }

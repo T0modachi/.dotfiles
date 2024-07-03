@@ -1,4 +1,0 @@
-[[session]]
-name = "veria-cloud"
-path = "~/work/veria-cloud"
-startup_script = "~/.config/sesh/veria-cloud.sh"
