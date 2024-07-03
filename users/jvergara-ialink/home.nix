@@ -64,7 +64,8 @@
     ".config/nvim".source = ./../../nvim;
     ".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
-    #".config/sesh/sesh.toml".source = ./sesh/sesh.toml;
+    ".config/sesh/sesh.toml".source = ./sesh/sesh.toml;
+    ".config/sesh/veria-cloud.sh".source = ./sesh/veria-cloud.sh;
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
