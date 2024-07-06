@@ -41,19 +41,6 @@
         extraSpecialArgs = {inherit inputs outputs;};
       };
 
-      jvergara-buk = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-          config.allowUnfreePredicate = _: true;
-          config.permittedInsecurePackages = ["electron-27.3.11" "electron-25.9.0" "openssl-1.1.1w" "electron-28.3.3"];
-        };
-        modules = [
-          ./users/jvergara-buk/home.nix
-        ];
-        extraSpecialArgs = {inherit inputs outputs;};
-      };
-
       jvergara-ialink = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
