@@ -21,23 +21,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    slack
-    filezilla
-    bitwarden
-    obsidian
-    teleport
-    kubectl
-    libreoffice
-    vlc
-    chromium
-    inputs.devenv.packages."${pkgs.system}".devenv
-    inputs.nixvim.packages.${pkgs.system}.default
-    cachix
-    glamoroustoolkit
-    dbeaver-bin
-    mob
-    appimage-run
-    brave
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
