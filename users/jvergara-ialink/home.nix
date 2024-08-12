@@ -39,7 +39,7 @@
     logseq
     openconnect
     networkmanager-openconnect
-    globalprotect-openconnect
+    beekeeper-studio
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
