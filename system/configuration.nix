@@ -109,7 +109,10 @@
     acceleration = "rocm";
     environmentVariables = {
       HSA_OVERRIDE_GFX_VERSION = "9.0.12";
+      HSA_XNACK = "1";
+      ROC_ENABLE_PRE_VEGA = "1";
     };
+    rocmOverrideGfx = "9.0.12";
   };
 
   # Configure console keymap
