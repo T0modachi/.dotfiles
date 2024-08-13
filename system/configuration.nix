@@ -89,6 +89,7 @@
   };
   #wayland support for electron based apps and chromium
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.HSA_XNACK = "1";
 
   # jvv: incluyo soporte ntfs para montar pendrive
   boot.supportedFilesystems = ["ntfs"];
@@ -106,13 +107,6 @@
 
   services.ollama = {
     enable = true;
-    acceleration = "rocm";
-    environmentVariables = {
-      HSA_OVERRIDE_GFX_VERSION = "9.0.12";
-      HSA_XNACK = "1";
-      ROC_ENABLE_PRE_VEGA = "1";
-    };
-    rocmOverrideGfx = "9.0.12";
   };
 
   # Configure console keymap
