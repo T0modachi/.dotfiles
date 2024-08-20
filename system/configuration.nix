@@ -171,6 +171,7 @@
     xclip
     wl-clipboard
     jq
+    kcalc
   ];
 
   programs.nix-ld.enable = true;
