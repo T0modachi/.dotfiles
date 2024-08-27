@@ -89,6 +89,19 @@
   };
   #wayland support for electron based apps and chromium
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-kde
+      pkgs.xdg-desktop-portal-wlr
+    ];
+    xdgOpenUsePortal = true;
+  };
+
   environment.sessionVariables.HSA_XNACK = "1";
 
   # jvv: incluyo soporte ntfs para montar pendrive
