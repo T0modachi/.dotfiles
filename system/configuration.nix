@@ -164,7 +164,7 @@
     git
     git-crypt
     gnupg
-    firefox
+    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override {pipewireSupport = true;}) {})
     libsForQt5.kdeconnect-kde
     gnumake
     docker-compose
@@ -185,6 +185,8 @@
     wl-clipboard
     jq
     kcalc
+    wireplumber
+    xwaylandvideobridge
   ];
 
   programs.nix-ld.enable = true;
