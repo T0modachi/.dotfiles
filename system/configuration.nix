@@ -185,7 +185,6 @@
     wl-clipboard
     jq
     kcalc
-    wireplumber
     xwaylandvideobridge
   ];
 
