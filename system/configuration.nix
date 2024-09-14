@@ -186,6 +186,7 @@
     jq
     kcalc
     xwaylandvideobridge
+    aider-chat
   ];
 
   programs.nix-ld.enable = true;
