@@ -872,11 +872,11 @@
         "pre-commit-hooks": "pre-commit-hooks_3"
       },
       "locked": {
-        "lastModified": 1726327078,
-        "narHash": "sha256-+wkSeJblOOp4b6IgzSS/GNOG8bAYL4c2MMGFibvsXnw=",
+        "lastModified": 1726331154,
+        "narHash": "sha256-OoEv5qBR945CMHrTyrZsQLAWSv/CStI1BWYUIMnq8Pw=",
         "owner": "T0modachi",
         "repo": "nixvim-config",
-        "rev": "2dd432b99f41ac481f36201d80b41473b5751339",
+        "rev": "f1ba9355a5224beb20086852cec64aaa482d741c",
         "type": "github"
       },
       "original": {
