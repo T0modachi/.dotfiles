@@ -187,6 +187,7 @@
     kcalc
     xwaylandvideobridge
     aider-chat
+    pharo
   ];
 
   programs.nix-ld.enable = true;
