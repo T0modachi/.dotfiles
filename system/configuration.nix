@@ -206,6 +206,7 @@
     aider-chat
     pharo
     logseq
+    steam-run
   ];
 
   programs.nix-ld.enable = true;
@@ -221,6 +222,7 @@
     openssl
     curl
     expat
+    #steam-run.fhsenv.args.multiPkgs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
