@@ -207,6 +207,7 @@
     pharo
     logseq
     steam-run
+    glamoroustoolkit
   ];
 
   programs.nix-ld.enable = true;

@@ -30,7 +30,6 @@
     inputs.devenv.packages."${pkgs.system}".devenv
     inputs.nixvim.packages.${pkgs.system}.default
     cachix
-    glamoroustoolkit
     dbeaver-bin
     mob
     appimage-run
