@@ -36,7 +36,6 @@
     appimage-run
     brave
     mysql-workbench
-    logseq
     openconnect
     networkmanager-openconnect
     beekeeper-studio

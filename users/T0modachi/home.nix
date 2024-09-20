@@ -30,7 +30,6 @@
     calibre
     appimage-run
     brave
-    logseq
     libreoffice
     discord
     #eclipses.eclipse-modeling # for the old times
