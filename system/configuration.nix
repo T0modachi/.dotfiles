@@ -151,21 +151,17 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  # keep this overlay until this issue get solved https://github.com/logseq/logseq/issues/10851
   nixpkgs.overlays = [
     (
       final: prev: {
-        logseq = prev.logseq.overrideAttrs (oldAttrs: {
-          postFixup = ''
-            makeWrapper ${prev.electron_30}/bin/electron $out/bin/${oldAttrs.pname} \
-              --set "LOCAL_GIT_DIRECTORY" ${prev.git} \
-              --add-flags $out/share/${oldAttrs.pname}/resources/app \
-              --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}" \
-              --prefix LD_LIBRARY_PATH : "${prev.lib.makeLibraryPath [prev.stdenv.cc.cc.lib]}"
-          '';
-        });
+        logseq = prev.logseq.override {
+          electron = prev.electron_27;
+        };
       }
     )
+  ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
   ];
 
   # List packages installed in system profile. To search, run:
@@ -205,9 +201,9 @@
     xwaylandvideobridge
     aider-chat
     pharo
-    logseq
     steam-run
     glamoroustoolkit
+    logseq
   ];
 
   programs.nix-ld.enable = true;
@@ -223,6 +219,7 @@
     openssl
     curl
     expat
+    glibc
     #steam-run.fhsenv.args.multiPkgs
   ];
 
