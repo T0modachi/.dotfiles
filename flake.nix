@@ -23,18 +23,15 @@
       config = {
         allowUnfree = true;
         allowUnfreePredicate = _: true;
+        permittedInsecurePackages = ["electron-25.9.0" "electron-27.3.11" "electron-28.3.3"];
       };
     };
-    lib = nixpkgs.lib;
+
+    inherit (nixpkgs) lib;
   in {
     homeManagerConfigurations = {
       T0modachi = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-          config.allowUnfreePredicate = _: true;
-          config.permittedInsecurePackages = ["electron-25.9.0" "electron-27.3.11" "electron-28.3.3"];
-        };
+        inherit pkgs;
         modules = [
           ./users/T0modachi/home.nix
         ];
@@ -42,12 +39,7 @@
       };
 
       jvergara-ialink = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-          config.allowUnfreePredicate = _: true;
-          config.permittedInsecurePackages = ["electron-27.3.11" "electron-25.9.0" "openssl-1.1.1w" "electron-28.3.3"];
-        };
+        inherit pkgs;
         modules = [
           ./users/jvergara-ialink/home.nix
         ];
