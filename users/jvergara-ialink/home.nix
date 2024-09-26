@@ -35,6 +35,7 @@
     appimage-run
     brave
     mysql-workbench
+    openfortivpn
     openconnect
     networkmanager-openconnect
     beekeeper-studio
