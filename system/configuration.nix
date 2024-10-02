@@ -204,6 +204,7 @@
     steam-run
     glamoroustoolkit
     logseq
+    heaptrack
   ];
 
   programs.nix-ld.enable = true;
