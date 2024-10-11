@@ -36,7 +36,7 @@
     brave
     mysql-workbench
     openfortivpn
-    openconnect
+    openconnect_openssl
     networkmanager-openconnect
     beekeeper-studio
     mqttx
