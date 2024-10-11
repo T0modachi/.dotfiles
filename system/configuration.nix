@@ -205,6 +205,7 @@
     glamoroustoolkit
     logseq
     heaptrack
+    discord
   ];
 
   programs.nix-ld.enable = true;

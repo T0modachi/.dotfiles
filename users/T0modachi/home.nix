@@ -31,7 +31,7 @@
     appimage-run
     brave
     libreoffice
-    discord
+    lutris
     #eclipses.eclipse-modeling # for the old times
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
