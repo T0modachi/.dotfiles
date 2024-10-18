@@ -27,7 +27,7 @@
     cachix
     slack
     dbeaver-bin
-    calibre
+    #calibre
     appimage-run
     brave
     libreoffice
