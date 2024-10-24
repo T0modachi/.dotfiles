@@ -41,6 +41,7 @@
     beekeeper-studio
     mqttx
     code-cursor
+    nfs-utils
     # for php debuging
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
