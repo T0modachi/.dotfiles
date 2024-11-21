@@ -44,8 +44,8 @@
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  #  time.timeZone = "America/Santiago";
-  time.timeZone = "Europe/Madrid";
+  time.timeZone = "America/Santiago";
+  #time.timeZone = "Europe/Madrid";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
