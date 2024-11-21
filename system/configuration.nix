@@ -18,7 +18,7 @@
   };
 
   # JVV nix flakes following https://www.youtube.com/watch?v=mJbQ--iBc1U&t=2s
-  nix.package = pkgs.nixFlakes;
+  nix.package = pkgs.nixVersions.latest;
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
@@ -151,15 +151,15 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  nixpkgs.overlays = [
-    (
-      final: prev: {
-        logseq = prev.logseq.override {
-          electron = prev.electron_27;
-        };
-      }
-    )
-  ];
+  # nixpkgs.overlays = [
+  #   (
+  #     final: prev: {
+  #       logseq = prev.logseq.override {
+  #         electron = prev.electron_27;
+  #       };
+  #     }
+  #   )
+  # ];
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
   ];
