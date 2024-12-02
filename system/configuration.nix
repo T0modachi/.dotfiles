@@ -295,4 +295,10 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+
+  # virtualbox
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = ["jvergara-ialink"];
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
 }
