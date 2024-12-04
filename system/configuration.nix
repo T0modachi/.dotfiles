@@ -206,6 +206,7 @@
     logseq
     heaptrack
     discord
+    awscli2
   ];
 
   programs.nix-ld.enable = true;
