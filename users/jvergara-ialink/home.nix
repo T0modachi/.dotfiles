@@ -123,6 +123,7 @@
         sshCommand = "ssh -i ~/.ssh/id_ed25519";
       };
       push = {autoSetupRemote = true;};
+      safe = {directory = "*";};
     };
 
     includes = [
