@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -185,7 +186,6 @@
     ollama
     unzip
     unrar
-    nerdfonts
     ripgrep
     fzf
     fd
@@ -208,6 +208,9 @@
     discord
     awscli2
   ];
+
+  #fonts.packages = with pkgs; [nerd-fonts];
+  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   programs.nix-ld.enable = true;
 
