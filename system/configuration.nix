@@ -200,13 +200,13 @@
     kcalc
     xwaylandvideobridge
     #aider-chat
-    pharo
+    #pharo
     steam-run
     glamoroustoolkit
     logseq
-    heaptrack
+    #heaptrack
     discord
-    awscli2
+    #awscli2
   ];
 
   #fonts.packages = with pkgs; [nerd-fonts];
