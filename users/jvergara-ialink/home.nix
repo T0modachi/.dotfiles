@@ -34,7 +34,6 @@
     mob
     appimage-run
     brave
-    mysql-workbench
     openfortivpn
     openconnect_openssl
     networkmanager-openconnect
