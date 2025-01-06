@@ -42,6 +42,7 @@
     code-cursor
     nfs-utils
     postman
+    openfortivpn-webview
     # for php debuging
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
