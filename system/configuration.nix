@@ -199,7 +199,7 @@
     jq
     kcalc
     xwaylandvideobridge
-    aider-chat
+    #aider-chat
     #pharo
     steam-run
     glamoroustoolkit
