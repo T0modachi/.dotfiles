@@ -207,6 +207,7 @@
     heaptrack
     discord
     awscli2
+    vlc
   ];
 
   #fonts.packages = with pkgs; [nerd-fonts];
