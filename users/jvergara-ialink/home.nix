@@ -70,8 +70,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/nvim".source = ./../../nvim;
-    ".config/nvim".recursive = true;
+    #".config/nvim".source = ./../../nvim;
+    #".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
     ".config/sesh/sesh.toml".source = ./sesh/sesh.toml;
     ".config/sesh/veria-cloud.sh".source = ./sesh/veria-cloud.sh;
