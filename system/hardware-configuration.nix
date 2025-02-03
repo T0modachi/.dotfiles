@@ -16,7 +16,7 @@
   boot.initrd.kernelModules = ["dm-snapshot" "amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-  boot.kernelParams = ["amdgpu.noretry=0"];
+  boot.kernelParams = ["amdgpu.noretry=0" "kvm.enable_virt_at_load=0"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/f8e9bd08-3ed2-4dde-874b-61ef8b206418";
