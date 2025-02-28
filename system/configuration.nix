@@ -209,6 +209,8 @@
     awscli2
     vlc
     keymapp
+    zellij
+    ghostty
   ];
 
   #fonts.packages = with pkgs; [nerd-fonts];
