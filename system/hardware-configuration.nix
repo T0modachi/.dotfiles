@@ -67,4 +67,6 @@
     enable = true;
     enable32Bit = true;
   };
+
+  hardware.keyboard.zsa.enable = true;
 }

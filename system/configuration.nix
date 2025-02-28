@@ -208,6 +208,7 @@
     discord
     awscli2
     vlc
+    keymapp
   ];
 
   #fonts.packages = with pkgs; [nerd-fonts];
