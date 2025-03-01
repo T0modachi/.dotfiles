@@ -74,8 +74,8 @@
     #".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
     ".config/ghostty/config".source = ../../ghostty/config;
-    ".config/zellij".source = ../../zellij;
-    ".config/zellij".recursive = true;
+    ".config/zellij/config.kdl".source = ../../zellij/config.kdl;
+    ".config/zellij/layouts/ariztia.kdl".source = ./zellij_templates/ariztia.kdl;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
