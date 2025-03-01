@@ -1,7 +1,7 @@
 layout {
    tab name="ariztia 1" {
       pane command="ssh" {
-        args = "-i ~/.ssh/veria-edge ialink@10.30.2.159"
+        args  "-i" "~/.ssh/veria-edge"  "ialink@10.30.2.159" 
     }
     }
 }
