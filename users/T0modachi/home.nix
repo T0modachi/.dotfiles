@@ -63,6 +63,8 @@
     #".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
     ".config/ghostty/config".source = ../../ghostty/config;
+    ".config/zellij".source = ../../zellij;
+    ".config/zellij".recursive = true;
     #".config/hypr/hyprland.conf".text = ''${builtins.readFile ../../hypr/hyprland.conf}'';
 
     #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
