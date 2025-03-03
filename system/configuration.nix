@@ -105,6 +105,8 @@
 
   environment.sessionVariables.HSA_XNACK = "1";
 
+  environment.sessionVariables.TERM = "xterm-256color";
+
   # jvv: incluyo soporte ntfs para montar pendrive
   boot.supportedFilesystems = ["ntfs"];
 
