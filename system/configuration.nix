@@ -163,9 +163,9 @@
   #     }
   #   )
   # ];
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-27.3.11"
-  ];
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "electron-27.3.11"
+  # ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -205,7 +205,7 @@
     #pharo
     steam-run
     glamoroustoolkit
-    logseq
+    #logseq
     heaptrack
     discord
     awscli2
