@@ -4,7 +4,7 @@ font-family = BerkeleyMono Nerd Font
 font-size = 12
 theme = catppuccin-macchiato
 shell-integration-features = no-cursor,sudo,no-title
-cursor-style = block
+#cursor-style = block
 adjust-cell-height = 35%
 # background-opacity = 0.96
 
