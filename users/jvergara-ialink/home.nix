@@ -101,6 +101,7 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
     NIXPKGS_ALLOW_INSECURE = 1;
+    TERM = "xterm-256color";
   };
 
   # Let Home Manager install and manage itself.

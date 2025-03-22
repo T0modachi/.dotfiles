@@ -93,6 +93,7 @@
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
     # EDITOR = "emacs";
+    TERM = "xterm-256color";
   };
 
   # Let Home Manager install and manage itself.
