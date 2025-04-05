@@ -37,7 +37,6 @@
     openfortivpn
     openconnect_openssl
     networkmanager-openconnect
-    beekeeper-studio
     mqttx
     code-cursor
     nfs-utils
