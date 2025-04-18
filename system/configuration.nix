@@ -213,6 +213,7 @@
     keymapp
     zellij
     ghostty
+    bitwarden-cli
   ];
 
   #fonts.packages = with pkgs; [nerd-fonts];
