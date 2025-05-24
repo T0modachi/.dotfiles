@@ -183,7 +183,7 @@
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
-    initExtra = ''
+    initContent = ''
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
     '';
