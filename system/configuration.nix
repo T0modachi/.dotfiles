@@ -192,7 +192,6 @@
     fzf
     fd
     starship
-    thefuck
     lazygit
     sesh
     zoxide
