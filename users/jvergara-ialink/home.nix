@@ -179,7 +179,7 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "thefuck" "tmux"];
+      plugins = ["git" "tmux"];
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
