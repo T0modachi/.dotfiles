@@ -213,6 +213,7 @@
     zellij
     ghostty
     bitwarden-cli
+    gemini-cli
   ];
 
   #fonts.packages = with pkgs; [nerd-fonts];
