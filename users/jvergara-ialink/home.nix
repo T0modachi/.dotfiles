@@ -152,6 +152,19 @@
         IdentitiesOnly = "yes";
       };
     };
+    extraConfig = ''
+      Host veria-prod-server
+        HostName ec2-54-172-82-205.compute-1.amazonaws.com
+        User ec2-user
+        # Especifica la clave a usar para el bastion
+        IdentityFile ~/.ssh/veria-cloud-template-keypair.pem
+
+      Host pronaca3
+        HostName 172.33.0.24
+        User ubuntu
+        IdentityFile ~/.ssh/veria-cloud-template-keypair.pem
+        ProxyJump veria-prod-server
+    '';
   };
 
   programs.tmux = {
