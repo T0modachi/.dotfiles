@@ -138,7 +138,7 @@
   users.users.T0modachi = {
     isNormalUser = true;
     initialPassword = "passwd";
-    extraGroups = ["wheel" "docker" "plugdev"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "docker" "plugdev" "networkmanager"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
     ];
   };
@@ -146,7 +146,7 @@
   users.users.jvergara-ialink = {
     isNormalUser = true;
     initialPassword = "passwd";
-    extraGroups = ["wheel" "docker" "plugdev"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "docker" "plugdev" "networkmanager"]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
     ];
   };
