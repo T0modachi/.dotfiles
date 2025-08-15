@@ -12,10 +12,24 @@
     ./hardware-configuration.nix
   ];
 
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
+  # for docker
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1; # enable port forwarding
+  };
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
+    # Customize Docker daemon settings using the daemon.settings option
+    daemon.settings = {
+      dns = ["1.1.1.1" "8.8.8.8"];
+    };
+    # Use the rootless mode - run Docker daemon as non-root user
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+      daemon.settings = {
+        dns = ["1.1.1.1" "8.8.8.8"];
+      };
+    };
   };
 
   # JVV nix flakes following https://www.youtube.com/watch?v=mJbQ--iBc1U&t=2s
@@ -253,7 +267,9 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  #networking.firewall.enable = false;
+
+  networking.firewall.trustedInterfaces = ["docker0"];
 
   networking.firewall = {
     enable = true;
@@ -269,6 +285,14 @@
         to = 1764;
       } # KDE Connect
     ];
+
+    #to avoid confilcts with docker container communication with host
+    extraCommands = "
+       iptables -I nixos-fw 1 -i br+ -j ACCEPT
+     ";
+    extraStopCommands = "
+       iptables -D nixos-fw -i br+ -j ACCEPT
+     ";
   };
 
   # Syncthing ports
