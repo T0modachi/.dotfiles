@@ -228,6 +228,7 @@
     ghostty
     bitwarden-cli
     gemini-cli
+    crush
   ];
 
   #fonts.packages = with pkgs; [nerd-fonts];
