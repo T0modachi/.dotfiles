@@ -229,6 +229,7 @@
     bitwarden-cli
     gemini-cli
     crush
+    opencode
   ];
 
   #fonts.packages = with pkgs; [nerd-fonts];
