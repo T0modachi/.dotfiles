@@ -195,7 +195,7 @@
     git-crypt
     gnupg
     (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override {pipewireSupport = true;}) {})
-    libsForQt5.kdeconnect-kde
+    kdePackages.kdeconnect-kde
     gnumake
     docker-compose
     kitty
