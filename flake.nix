@@ -1,5 +1,5 @@
 {
-  description = "T0modachi's System Config";
+  description = "jvergara-ialink dotfiles";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -48,10 +48,20 @@
     };
 
     nixosConfigurations = {
-      # 'nixos' is the reference to the hostname of the machine, so you can have multiples
-      nixos = lib.nixosSystem {
+      work-laptop = lib.nixosSystem {
         inherit system;
-        modules = [./system/configuration.nix];
+        modules = [
+          ./system/work-laptop/configuration.nix
+          ./system/work-laptop/hardware-configuration.nix
+        ];
+      };
+      nix-laptop = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./system/nix-laptop/configuration.nix
+          ./system/nix-laptop/hardware-configuration.nix
+          ./system/nix-laptop/disko.nix
+        ];
       };
     };
   };
