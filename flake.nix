@@ -60,7 +60,6 @@
         modules = [
           ./system/nix-laptop/configuration.nix
           ./system/nix-laptop/hardware-configuration.nix
-          ./system/nix-laptop/disko.nix
         ];
       };
     };
