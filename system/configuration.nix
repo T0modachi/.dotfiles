@@ -230,6 +230,9 @@
     gemini-cli
     crush
     opencode
+    openvpn
+    networkmanager-openvpn
+    kdePackages.networkmanager-qt
   ];
 
   #fonts.packages = with pkgs; [nerd-fonts];
