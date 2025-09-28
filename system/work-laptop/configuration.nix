@@ -12,6 +12,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../common/packages.nix
+    ../common/common-options.nix
   ];
 
   # for docker
@@ -175,8 +176,7 @@
     ];
   };
 
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+
 
   # nixpkgs.overlays = [
   #   (

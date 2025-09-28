@@ -11,6 +11,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../common/packages.nix
+    ../common/common-options.nix
   ];
 
   # Activar Flakes y el nuevo CLI de Nix
