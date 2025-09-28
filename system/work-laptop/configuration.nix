@@ -149,13 +149,6 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.T0modachi = {
-    isNormalUser = true;
-    initialPassword = "passwd";
-    extraGroups = ["wheel" "docker" "plugdev" "networkmanager"]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-    ];
-  };
 
   users.users.jvergara-ialink = {
     isNormalUser = true;
@@ -303,15 +296,6 @@
   # Syncthing ports
   networking.firewall.allowedTCPPorts = [8384 22000];
   networking.firewall.allowedUDPPorts = [22000 21027];
-
-  services = {
-    syncthing = {
-      enable = true;
-      user = "T0modachi";
-      dataDir = "/home/T0modachi/Sync"; # Default folder for new synced folders
-      configDir = "/home/T0modachi/.config/syncthing"; # Folder for Syncthing's settings and keys
-    };
-  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

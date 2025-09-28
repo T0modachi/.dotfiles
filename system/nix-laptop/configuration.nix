@@ -10,6 +10,12 @@
       ./hardware-configuration.nix
     ];
 
+  # Activar Flakes y el nuevo CLI de Nix
+  nix.package = pkgs.nixVersions.latest;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -81,7 +87,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.t0modachi = {
+  users.users.T0modachi = {
     isNormalUser = true;
     description = "T0modachi";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -89,6 +95,11 @@
     #  thunderbird
     ];
   };
+
+  # Activar sudo para el grupo 'wheel'
+  security.sudo.enable = true;
+  security.sudo.wheelNeedsPassword = true;
+
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -101,6 +112,7 @@
   environment.systemPackages = with pkgs; [
    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
    git  
+   gemini-cli
 #  wget
   ];
 
