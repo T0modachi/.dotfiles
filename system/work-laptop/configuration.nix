@@ -6,10 +6,12 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ../common/packages.nix
   ];
 
   # for docker
@@ -20,14 +22,20 @@
     enable = true;
     # Customize Docker daemon settings using the daemon.settings option
     daemon.settings = {
-      dns = ["1.1.1.1" "8.8.8.8"];
+      dns = [
+        "1.1.1.1"
+        "8.8.8.8"
+      ];
     };
     # Use the rootless mode - run Docker daemon as non-root user
     rootless = {
       enable = true;
       setSocketVariable = true;
       daemon.settings = {
-        dns = ["1.1.1.1" "8.8.8.8"];
+        dns = [
+          "1.1.1.1"
+          "8.8.8.8"
+        ];
       };
     };
   };
@@ -39,9 +47,13 @@
   '';
 
   nix.settings = {
-    trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
-    substituters = ["https://devenv.cachix.org"];
-    trusted-users = ["root" "T0modachi" "jvergara-ialink"];
+    trusted-public-keys = [ "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=" ];
+    substituters = [ "https://devenv.cachix.org" ];
+    trusted-users = [
+      "root"
+      "T0modachi"
+      "jvergara-ialink"
+    ];
   };
 
   # Use the systemd-boot EFI boot loader.
@@ -89,7 +101,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   services.displayManager.sddm.enable = true;
   #services.xserver.desktopManager.plasma6.enable = true;
@@ -122,7 +134,7 @@
   environment.sessionVariables.TERM = "xterm-256color";
 
   # jvv: incluyo soporte ntfs para montar pendrive
-  boot.supportedFilesystems = ["ntfs"];
+  boot.supportedFilesystems = [ "ntfs" ];
 
   #jvv: para limitar el maximo de generaciones en boot
   boot.loader.systemd-boot.configurationLimit = 5;
@@ -153,7 +165,12 @@
   users.users.jvergara-ialink = {
     isNormalUser = true;
     initialPassword = "passwd";
-    extraGroups = ["wheel" "docker" "plugdev" "networkmanager"]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "docker"
+      "plugdev"
+      "networkmanager"
+    ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
     ];
   };
@@ -177,53 +194,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    home-manager # jvv: incluyo segun instrucciones de https://www.youtube.com/watch?v=FcC2dzecovw
-    gcc
-    rustc
-    cargo
-    lua
-    git
-    git-crypt
-    gnupg
-    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override {pipewireSupport = true;}) {})
-    kdePackages.kdeconnect-kde
-    gnumake
-    docker-compose
-    kitty
-    ollama
-    unzip
-    unrar
-    ripgrep
-    fzf
-    fd
-    starship
-    lazygit
-    sesh
-    zoxide
-    xclip
-    wl-clipboard
-    jq
+    # vim is in common packages
     kdePackages.kcalc
     kdePackages.xwaylandvideobridge
-    #aider-chat
-    #pharo
-    steam-run
-    glamoroustoolkit
-    #logseq
-    heaptrack
-    discord
-    awscli2
-    vlc
-    keymapp
-    zellij
-    ghostty
-    bitwarden-cli
-    gemini-cli
-    crush
-    opencode
-    openvpn
+    kdePackages.kdeconnect-kde
     networkmanager-openvpn
     kdePackages.networkmanager-qt
   ];
@@ -267,7 +241,7 @@
   # Or disable the firewall altogether.
   #networking.firewall.enable = false;
 
-  networking.firewall.trustedInterfaces = ["docker0"];
+  networking.firewall.trustedInterfaces = [ "docker0" ];
 
   networking.firewall = {
     enable = true;
@@ -294,8 +268,14 @@
   };
 
   # Syncthing ports
-  networking.firewall.allowedTCPPorts = [8384 22000];
-  networking.firewall.allowedUDPPorts = [22000 21027];
+  networking.firewall.allowedTCPPorts = [
+    8384
+    22000
+  ];
+  networking.firewall.allowedUDPPorts = [
+    22000
+    21027
+  ];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -322,7 +302,7 @@
 
   # virtualbox
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = ["jvergara-ialink"];
+  users.extraGroups.vboxusers.members = [ "jvergara-ialink" ];
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.dragAndDrop = true;
 }

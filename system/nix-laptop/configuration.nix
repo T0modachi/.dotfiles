@@ -1,14 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../common/packages.nix
+  ];
 
   # Activar Flakes y el nuevo CLI de Nix
   nix.package = pkgs.nixVersions.latest;
@@ -90,16 +93,18 @@
   users.users.T0modachi = {
     isNormalUser = true;
     description = "T0modachi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
   # Activar sudo para el grupo 'wheel'
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = true;
-
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -110,10 +115,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-   git  
-   gemini-cli
-#  wget
+    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # git
+    # gemini-cli
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -142,5 +147,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
