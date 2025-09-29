@@ -20,6 +20,9 @@
     experimental-features = nix-command flakes
   '';
 
+  # necessary for devenv to use cachix
+  nix.settings.trusted-users = [ "root" "T0modachi" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
