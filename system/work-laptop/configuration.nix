@@ -176,8 +176,6 @@
     ];
   };
 
-
-
   # nixpkgs.overlays = [
   #   (
   #     final: prev: {
@@ -196,7 +194,6 @@
   environment.systemPackages = with pkgs; [
     # vim is in common packages
     kdePackages.kcalc
-    kdePackages.xwaylandvideobridge
     kdePackages.kdeconnect-kde
     networkmanager-openvpn
     kdePackages.networkmanager-qt

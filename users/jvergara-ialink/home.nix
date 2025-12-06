@@ -24,7 +24,7 @@
   home.packages = with pkgs; [
     slack
     filezilla
-    bitwarden
+    bitwarden-desktop
     obsidian
     libreoffice
     vlc
@@ -116,10 +116,10 @@
 
   programs.git = {
     enable = true;
-    userName = "T0modachi";
-    userEmail = "jvergarava@gmail.com";
 
-    extraConfig = {
+    settings = {
+      user.name = "T0modachi";
+      user.email = "jvergarava@gmail.com";
       core = {
         sshCommand = "ssh -i ~/.ssh/id_ed25519";
       };

@@ -44,6 +44,7 @@
     zellij
     ghostty
     bitwarden-cli
+    bitwarden-desktop
     # gemini-cli is in common packages
     crush
     opencode
