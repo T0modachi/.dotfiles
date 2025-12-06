@@ -3,7 +3,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "jvergara-ialink";
@@ -122,8 +123,12 @@
       core = {
         sshCommand = "ssh -i ~/.ssh/id_ed25519";
       };
-      push = {autoSetupRemote = true;};
-      safe = {directory = "*";};
+      push = {
+        autoSetupRemote = true;
+      };
+      safe = {
+        directory = "*";
+      };
     };
 
     includes = [
@@ -159,11 +164,30 @@
         # Especifica la clave a usar para el bastion
         IdentityFile ~/.ssh/veria-cloud-template-keypair.pem
 
+      Host veria-vpn-server
+        HostName ec2-52-54-112-45.compute-1.amazonaws.com
+        User ubuntu
+        # Especifica la clave a usar para el bastion
+        IdentityFile ~/.ssh/veria-vpn-server-key.pem
+
       Host pronaca3
         HostName 172.33.0.24
         User ubuntu
         IdentityFile ~/.ssh/veria-cloud-template-keypair.pem
         ProxyJump veria-prod-server
+
+      Host spsa1
+        HostName 10.8.0.8
+        User ialink
+        IdentityFile ~/.ssh/veria-vpn-server-key.pem
+        ProxyJump veria-vpn-server
+
+      Host spsa2
+        HostName 10.8.0.9
+        User ialink
+        IdentityFile ~/.ssh/veria-vpn-server-key.pem
+        ProxyJump veria-vpn-server
+
     '';
   };
 
@@ -192,7 +216,10 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "tmux"];
+      plugins = [
+        "git"
+        "tmux"
+      ];
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
