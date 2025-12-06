@@ -3,7 +3,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "T0modachi";
@@ -32,7 +33,20 @@
     brave
     libreoffice
     anydesk
-    (callPackage ../../packages/zen.nix {})
+    (callPackage ../../packages/zen.nix { })
+    lutris
+    #lutris-unwrapped
+    vulkan-tools # dependiencia de lutris
+    dxvk
+    mesa
+    vulkan-loader
+    vulkan-validation-layers
+    vulkan-extension-layer
+    vulkan-tools
+    libva
+    libva-utils
+    protonup-qt
+    wine
     #eclipses.eclipse-modeling # for the old times
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -151,7 +165,10 @@
     };
     oh-my-zsh = {
       enable = true;
-      plugins = ["git" "tmux"];
+      plugins = [
+        "git"
+        "tmux"
+      ];
     };
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
