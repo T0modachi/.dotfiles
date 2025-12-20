@@ -21,11 +21,10 @@
   '';
 
   # necessary for devenv to use cachix
-  nix.settings.trusted-users = [ "root" "T0modachi" ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  nix.settings.trusted-users = [
+    "root"
+    "T0modachi"
+  ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -150,5 +149,20 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.05";
+  boot = {
+    loader = {
+      # Bootloader.
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true; # Did you read the comment?
+
+      systemd-boot.configurationLimit = 5;
+    };
+  };
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 }
