@@ -120,22 +120,26 @@
     '';
   };
 
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      decorations = {
+        commit-decoration-style = "bold yellow box ul";
+        file-decoration-style = "none";
+        file-style = "bold yellow ul";
+      };
+      features = "decorations";
+      whitespace-error-style = "22 reverse";
+    };
+  };
+
   programs.git = {
     enable = true;
-    # Configure identity
-    userName = "T0modachi";
-    userEmail = "jvergarava@gmail.com";
-    # Use Git Delta for diffs
-    delta = {
-      enable = true;
-      options = {
-        decorations = {
-          commit-decoration-style = "bold yellow box ul";
-          file-decoration-style = "none";
-          file-style = "bold yellow ul";
-        };
-        features = "decorations";
-        whitespace-error-style = "22 reverse";
+    settings = {
+      user = {
+        name = "T0modachi";
+        mail = "jvergarava@gmail.com";
       };
     };
   };
