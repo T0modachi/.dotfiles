@@ -47,6 +47,7 @@
     libva-utils
     protonup-qt
     wine
+    gnomeExtensions.paperwm
     #eclipses.eclipse-modeling # for the old times
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -195,5 +196,16 @@
     systemd.enable = true;
 
     extraConfig = ''${builtins.readFile ../../hypr/hyprland.conf}'';
+  };
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/shell" = {
+        enabled-extensions = [
+          "paperwm@paperwm.github.com"
+        ];
+      };
+    };
   };
 }
