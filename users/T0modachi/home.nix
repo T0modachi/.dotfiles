@@ -48,6 +48,7 @@
     protonup-qt
     wine
     gnomeExtensions.paperwm
+    zola
     #eclipses.eclipse-modeling # for the old times
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
