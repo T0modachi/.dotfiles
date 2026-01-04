@@ -113,6 +113,7 @@
     # git
     # gemini-cli
     #  wget
+    inputs.noctalia.packages.${system}.default
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -178,4 +179,5 @@
       21027
     ];
   };
+  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

@@ -84,6 +84,10 @@
     ".config/ghostty/config".source = ../../ghostty/config;
     ".config/zellij".source = ../../zellij;
     ".config/zellij".recursive = true;
+    ".config/niri/config.kdl".source = ../../niri/config.kdl;
+    ".config/quickshell/noctalia/settings.json".source = ../../noctalia/settings.json;
+    ".config/quickshell/noctalia/colors.json".source = ../../noctalia/colors.json;
+
     #".config/hypr/hyprland.conf".text = ''${builtins.readFile ../../hypr/hyprland.conf}'';
 
     #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
