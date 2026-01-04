@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     vim
     git
-    gemini-cli
+    #gemini-cli
     # vim is in common packages
     wget
     home-manager # jvv: incluyo segun instrucciones de https://www.youtube.com/watch?v=FcC2dzecovw
