@@ -76,7 +76,7 @@
           modules = [
             ./system/nix-laptop/configuration.nix
             ./system/nix-laptop/hardware-configuration.nix
-            ./noctalia.nix
+            ./noctalia/noctalia.nix
           ];
         };
       };
