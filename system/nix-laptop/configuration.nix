@@ -4,6 +4,8 @@
 {
   config,
   pkgs,
+  lib,
+  inputs,
   ...
 }:
 {
@@ -179,5 +181,6 @@
       21027
     ];
   };
-  fonts.packages = with pkgs; [ nerdfonts ];
+  #fonts.packages = with pkgs; [ nerdfonts ];
+  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

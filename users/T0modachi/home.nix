@@ -84,7 +84,10 @@
     ".config/ghostty/config".source = ../../ghostty/config;
     ".config/zellij".source = ../../zellij;
     ".config/zellij".recursive = true;
-    ".config/niri/config.kdl".source = ../../niri/config.kdl;
+    ".config/niri/config.kdl" = {
+      source = ../../niri/config.kdl;
+      force = true; # <--- Sobreescribe sin preguntar
+    };
     ".config/quickshell/noctalia/settings.json".source = ../../noctalia/settings.json;
     ".config/quickshell/noctalia/colors.json".source = ../../noctalia/colors.json;
 
