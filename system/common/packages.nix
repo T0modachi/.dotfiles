@@ -46,7 +46,7 @@
     bitwarden-cli
     bitwarden-desktop
     # gemini-cli is in common packages
-    crush
+    antigravity
     opencode
     openvpn
   ];

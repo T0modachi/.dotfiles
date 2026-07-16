@@ -25,6 +25,8 @@
     obsidian
     inputs.devenv.packages."${pkgs.system}".devenv
     inputs.nixvim.packages.${pkgs.system}.default
+    inputs.llm-agents.packages.${pkgs.system}.omp
+    inputs.llm-agents.packages.${pkgs.system}.codegraph
     cachix
     slack
     dbeaver-bin
@@ -34,7 +36,7 @@
     libreoffice
     anydesk
     (callPackage ../../packages/zen.nix { })
-    lutris
+    #lutris
     #lutris-unwrapped
     vulkan-tools # dependiencia de lutris
     dxvk
@@ -205,7 +207,7 @@
     # Whether to enable hyprland-session.target on hyprland startup
     systemd.enable = true;
 
-    extraConfig = ''${builtins.readFile ../../hypr/hyprland.conf}'';
+    extraConfig = "${builtins.readFile ../../hypr/hyprland.conf}";
   };
 
   dconf = {

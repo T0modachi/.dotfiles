@@ -7,6 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     devenv.url = "github:cachix/devenv/latest";
     nixvim.url = "github:T0modachi/nixvim-config";
+    llm-agents.url = "github:numtide/llm-agents.nix";
     quickshell = {
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
