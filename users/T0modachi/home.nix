@@ -53,6 +53,7 @@
     wine
     gnomeExtensions.paperwm
     zola
+    herdr
     swaybg # wallpaper
     xwayland-satellite # xwayland support
     #eclipses.eclipse-modeling # for the old times
