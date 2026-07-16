@@ -1207,26 +1207,6 @@
         "type": "github"
       }
     },
-    "noctalia": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1784166182,
-        "narHash": "sha256-lST9P75pJwCKDe9sK1xbbsyhpUbx8Nl1YULU4bRNlFw=",
-        "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
-        "rev": "3f45cb05558605a69ac15d84e5f554a5a25dd3e0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "noctalia-shell",
-        "type": "github"
-      }
-    },
     "ponytail": {
       "flake": false,
       "locked": {
@@ -1324,26 +1304,6 @@
         "type": "github"
       }
     },
-    "quickshell": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1783673918,
-        "narHash": "sha256-cFG5vnmjJcZRVCSUaqQLOdwkX6iqF6bY8IvvmBSGSRs=",
-        "owner": "outfoxxed",
-        "repo": "quickshell",
-        "rev": "4df562dfb2475a9057f0f33a8db75808efad8670",
-        "type": "github"
-      },
-      "original": {
-        "owner": "outfoxxed",
-        "repo": "quickshell",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agent-skills-nix": "agent-skills-nix",
@@ -1355,9 +1315,7 @@
         "mcp-servers-nix": "mcp-servers-nix",
         "nixpkgs": "nixpkgs_10",
         "nixvim": "nixvim",
-        "noctalia": "noctalia",
-        "ponytail": "ponytail",
-        "quickshell": "quickshell"
+        "ponytail": "ponytail"
       }
     },
     "rust-overlay": {

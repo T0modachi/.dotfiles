@@ -22,15 +22,6 @@
       url = "github:DietrichGebert/ponytail";
       flake = false;
     };
-    quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell"; # Use same quickshell version
-    };
   };
 
   outputs =
@@ -93,7 +84,6 @@
           modules = [
             ./system/nix-laptop/configuration.nix
             ./system/nix-laptop/hardware-configuration.nix
-            ./noctalia/noctalia.nix
           ];
         };
       };

@@ -115,7 +115,6 @@
     # git
     # gemini-cli
     #  wget
-    inputs.noctalia.packages.${system}.default
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

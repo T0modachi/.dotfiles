@@ -93,8 +93,6 @@
       source = ../../niri/config.kdl;
       force = true; # <--- Sobreescribe sin preguntar
     };
-    ".config/quickshell/noctalia/settings.json".source = ../../noctalia/settings.json;
-    ".config/quickshell/noctalia/colors.json".source = ../../noctalia/colors.json;
     ".omp/agent/config.yml".source = ../../omp/config.yml;
     ".omp/agent/mcp.json".source = ../../omp/mcp.json;
     ".omp/agent/RULES.md".source = ../../omp/RULES.md;

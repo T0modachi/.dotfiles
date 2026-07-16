@@ -9,7 +9,7 @@ Este repositorio es una configuración de **NixOS + Home Manager** para varias m
 - **Sistema fijo:** `x86_64-linux`
 - **Canal de Nixpkgs:** `nixos-unstable`
 - **Home Manager:** rama `master` con `follows` a `nixpkgs`
-- **Otros inputs clave:** `nixvim`, `llm-agents`, `mcp-servers-nix`, `quickshell`, `noctalia`, `devenv`
+- **Otros inputs clave:** `nixvim`, `llm-agents`, `mcp-servers-nix`, `devenv`
 
 ## 2. Estructura del repositorio
 
@@ -33,10 +33,6 @@ Este repositorio es una configuración de **NixOS + Home Manager** para varias m
 │       └── home.nix
 ├── packages/
 │   └── zen.nix                # Empaquetado custom de Zen Browser (AppImage)
-├── noctalia/
-│   ├── noctalia.nix           # Integración del shell Noctalia en NixOS
-│   ├── settings.json
-│   └── colors.json
 ├── nvim/                      # Configuración de Neovim (Lua, se carga vía Nixvim en inputs)
 ├── zellij/                    # Configuración de Zellij
 ├── ghostty/                   # Configuración de Ghostty
@@ -56,7 +52,7 @@ Este repositorio es una configuración de **NixOS + Home Manager** para varias m
 
 ### NixOS configurations
 
-- `nix-laptop` — laptop personal. Incluye `noctalia/noctalia.nix` y recibe `inputs` como `specialArgs`.
+- `nix-laptop` — laptop personal. Recibe `inputs` como `specialArgs`.
 - `work-laptop` — laptop de trabajo. No recibe `inputs` en `specialArgs`, así que no asumas que está disponible en esos módulos.
 
 ### Home Manager configurations
@@ -86,7 +82,6 @@ Cada `home.nix` declara:
 
 - **T0modachi** usa:
   - Niri + Hyprland (Niri enlazado con `force = true`)
-  - Quickshell/Noctalia
   - Zellij como directorio recursivo
   - Oh My Pi config (`~/.omp/agent/*`)
   - Waybar, Swaylock, Mako, Swayidle, Polkit-gnome
@@ -94,7 +89,7 @@ Cada `home.nix` declara:
 - **jvergara-ialink** usa:
   - Zellij con un solo `config.kdl` y un layout custom (`zellij_templates/ariztia.kdl`)
   - SSH config
-  - No enlaza Niri, Noctalia, ni Oh My Pi
+  - No enlaza Niri ni Oh My Pi
 
 ## 6. Scripts de aplicación
 
@@ -137,7 +132,6 @@ Después de cambios grandes en Nix/Lua, reindexa para que los agentes posteriore
 - **`.codegraph/`** está ignorado por git (ver `.codegraph/.gitignore`). No commitees la base de datos.
 - **`result`** es un symlink de Nix build. Está en `.gitignore` (raíz). No lo commitees.
 - **`users/T0modachi/home.nix`** usa `force = true` en el enlace de Niri. Esto sobrescribe `~/.config/niri/config.kdl` sin preguntar.
-- **Noctalia** solo se importa en `nix-laptop`, no en `work-laptop`.
 - **`inputs`** no está disponible para `work-laptop` en `specialArgs`; solo `nix-laptop` lo recibe.
 
 ## 9. Cómo verificar un cambio
