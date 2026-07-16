@@ -245,9 +245,15 @@
       subdir = "plugins/caveman/skills";
     };
 
-    # Habilitar solo el skill principal "caveman"
-    # (también disponibles: caveman-compress, caveman-stats, cavecrew)
-    skills.enable = [ "caveman" ];
+    # Source: el repo de Anthropic skills, skills bajo skills/
+    sources.anthropic-skills = {
+      input = "anthropic-skills";
+      subdir = "skills";
+    };
+
+    # Habilitar caveman y frontend-design
+    # (también disponibles: caveman-compress, caveman-stats, cavemancrew)
+    skills.enable = [ "caveman" "frontend-design" ];
 
     # Target para OMP: instala en ~/.omp/agent/skills (native provider, priority 100)
     targets.omp = {

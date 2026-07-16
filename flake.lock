@@ -19,6 +19,22 @@
         "type": "github"
       }
     },
+    "anthropic-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1782929483,
+        "narHash": "sha256-U7Nt1xrFOSOEm4vuWmy4pVsEyvv+Hj4sv8yXOofmwAw=",
+        "owner": "anthropics",
+        "repo": "skills",
+        "rev": "9d2f1ae187231d8199c64b5b762e1bdf2244733d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anthropics",
+        "repo": "skills",
+        "type": "github"
+      }
+    },
     "bun2nix": {
       "inputs": {
         "flake-parts": [
@@ -1340,6 +1356,7 @@
     "root": {
       "inputs": {
         "agent-skills-nix": "agent-skills-nix",
+        "anthropic-skills": "anthropic-skills",
         "caveman": "caveman",
         "devenv": "devenv",
         "home-manager": "home-manager_3",
