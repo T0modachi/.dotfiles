@@ -251,9 +251,24 @@
       subdir = "skills";
     };
 
+    # Source: el repo de ponytail, skills bajo .openclaw/skills/
+    sources.ponytail = {
+      input = "ponytail";
+      subdir = ".openclaw/skills";
+    };
+
     # Habilitar caveman y frontend-design
     # (también disponibles: caveman-compress, caveman-stats, cavemancrew)
-    skills.enable = [ "caveman" "frontend-design" ];
+    skills.enable = [
+      "caveman"
+      "frontend-design"
+      "ponytail"
+      "ponytail-audit"
+      "ponytail-debt"
+      "ponytail-gain"
+      "ponytail-help"
+      "ponytail-review"
+    ];
 
     # Target para OMP: instala en ~/.omp/agent/skills (native provider, priority 100)
     targets.omp = {

@@ -18,6 +18,10 @@
       url = "github:anthropics/skills";
       flake = false;
     };
+    ponytail = {
+      url = "github:DietrichGebert/ponytail";
+      flake = false;
+    };
     quickshell = {
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
