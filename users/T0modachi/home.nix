@@ -235,4 +235,25 @@
   services.mako.enable = true; # notification daemon
   services.swayidle.enable = true; # idle management daemon
   services.polkit-gnome.enable = true; # polkit
+
+  programs.agent-skills = {
+    enable = true;
+
+    # Source: el repo de caveman, skills bajo plugins/caveman/skills/
+    sources.caveman = {
+      input = "caveman";
+      subdir = "plugins/caveman/skills";
+    };
+
+    # Habilitar solo el skill principal "caveman"
+    # (también disponibles: caveman-compress, caveman-stats, cavecrew)
+    skills.enable = [ "caveman" ];
+
+    # Target para OMP: instala en ~/.omp/agent/skills (native provider, priority 100)
+    targets.omp = {
+      enable = true;
+      dest = "$HOME/.omp/agent/skills";
+      structure = "symlink-tree";
+    };
+  };
 }
