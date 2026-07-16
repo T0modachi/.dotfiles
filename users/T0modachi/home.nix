@@ -28,6 +28,7 @@
     inputs.llm-agents.packages.${pkgs.system}.omp
     inputs.llm-agents.packages.${pkgs.system}.codegraph
     inputs.mcp-servers-nix.packages.${pkgs.system}.context7-mcp
+    inputs.mcp-servers-nix.packages.${pkgs.system}.tavily-mcp
     cachix
     slack
     dbeaver-bin
