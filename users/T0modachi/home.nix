@@ -96,6 +96,7 @@
     ".config/quickshell/noctalia/colors.json".source = ../../noctalia/colors.json;
     ".omp/agent/config.yml".source = ../../omp/config.yml;
     ".omp/agent/mcp.json".source = ../../omp/mcp.json;
+    ".omp/agent/RULES.md".source = ../../omp/RULES.md;
     #".config/hypr/hyprland.conf".text = ''${builtins.readFile ../../hypr/hyprland.conf}'';
 
     #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
