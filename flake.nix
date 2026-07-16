@@ -8,6 +8,7 @@
     devenv.url = "github:cachix/devenv/latest";
     nixvim.url = "github:T0modachi/nixvim-config";
     llm-agents.url = "github:numtide/llm-agents.nix";
+    mcp-servers-nix.url = "github:natsukium/mcp-servers-nix";
     quickshell = {
       url = "github:outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";

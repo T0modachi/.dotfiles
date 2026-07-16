@@ -27,6 +27,7 @@
     inputs.nixvim.packages.${pkgs.system}.default
     inputs.llm-agents.packages.${pkgs.system}.omp
     inputs.llm-agents.packages.${pkgs.system}.codegraph
+    inputs.mcp-servers-nix.packages.${pkgs.system}.context7-mcp
     cachix
     slack
     dbeaver-bin
@@ -93,7 +94,7 @@
     ".config/quickshell/noctalia/settings.json".source = ../../noctalia/settings.json;
     ".config/quickshell/noctalia/colors.json".source = ../../noctalia/colors.json;
     ".omp/agent/config.yml".source = ../../omp/config.yml;
-
+    ".omp/agent/mcp.json".source = ../../omp/mcp.json;
     #".config/hypr/hyprland.conf".text = ''${builtins.readFile ../../hypr/hyprland.conf}'';
 
     #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
