@@ -3,11 +3,50 @@ theme:
   dark: titanium
   light: light
 setupVersion: 1
+# ============================================================
+# Configuraciones alternativas (comentadas — descomenta UNA y
+# comenta/sustituye el bloque `modelRoles` + `cycleOrder` de arriba)
+# Precios por 1M tokens: Input / Output / Cached Read / Cached Write
+# El formato de slug (opencode-go/<modelo>%) sigue el de tu config activa.
+# ============================================================
+
+# --- Alternativa A: Mejor relación resultados / precio (balanceado) ---
+# default  Kimi K2.7 Code  $0.95 / $4.00 / $0.19    orientado a código, buen valor
+# smol     MiMo V2.5       $0.14 / $0.28 / $0.0028  lo más barato para tareas ligeras
+# slow     Qwen3.7 Plus    $0.40 / $1.60 / $0.04    razonamiento profundo sin pagar Max
 modelRoles:
-  default: opencode-go/glm-5.2%
-  smol: opencode-go/glm-5.2%
-  slow: opencode-go/glm-5.2%
+  default: opencode-go/kimi-k2.7-code%
+  smol: opencode-go/mimo-v2.5%
+  slow: opencode-go/qwen3.7-plus%
 cycleOrder:
   - default
   - smol
   - slow
+# --- Alternativa B: Prioriza precio (lo más barato ADECUADO a cada rol) ---
+# En cada rol, el modelo más barato que sigue siendo capaz para esa tarea.
+# default  MiniMax M3      $0.30 / $1.20 / $0.06        capaz y económico, no es "micro"
+# smol     MiMo V2.5       $0.14 / $0.28 / $0.0028      suficiente para giros rápidos/ligeros
+# slow     Qwen3.7 Plus    $0.40 / $1.60 / $0.04 / $0.50  razonamiento + ventana 256K a bajo precio
+# (MiMo/DeepSeek Flash son $0.14 pero SIN razonamiento ni contexto útil para `slow`.)
+# modelRoles:
+#   default: opencode-go/minimax-m3%
+#   smol: opencode-go/mimo-v2.5%
+#   slow: opencode-go/qwen3.7-plus%
+# cycleOrder:
+#   - default
+#   - smol
+
+# --- Alternativa C: Prioriza resultados (mejor modelo ADECUADO a cada rol) ---
+# En cada rol, el modelo más capaz apropiado para esa tarea (no sobrecualificar).
+# default  Kimi K2.7 Code  $0.95 / $4.00 / $0.19        insignia orientada a código, trabajo principal
+# smol     GLM-5.2         $1.40 / $4.40 / $0.26         rápido y capaz para turnos cortos
+# slow     Qwen3.7 Max     $2.50 / $7.50 / $0.50 / $3.125  máxima profundidad, sin importar costo
+# (Qwen3.7 Max en `smol` sería innecesariamente lento/caro para giros rápidos.)
+# modelRoles:
+#   default: opencode-go/kimi-k2.7-code%
+#   smol: opencode-go/glm-5.2%
+#   slow: opencode-go/qwen3.7-max%
+# cycleOrder:
+#   - default
+#   - smol
+#   - slow
