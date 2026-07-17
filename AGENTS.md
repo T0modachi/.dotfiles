@@ -38,7 +38,6 @@ Este repositorio es una configuración de **NixOS + Home Manager** para varias m
 ├── ghostty/                   # Configuración de Ghostty
 ├── starship/                  # Prompt de Starship
 ├── niri/                      # Configuración del compositor Niri
-├── hypr/                      # Configuración de Hyprland (actualmente no enlazada)
 ├── tmux/                      # Configuración de Tmux (no enlazada por HM en T0modachi)
 ├── omp/
 │   ├── config.yml             # Configuración de Oh My Pi
@@ -81,7 +80,7 @@ Cada `home.nix` declara:
 ### Diferencias entre usuarios
 
 - **T0modachi** usa:
-  - Niri + Hyprland (Niri enlazado con `force = true`)
+  - Niri (enlazado con `force = true`)
   - Zellij como directorio recursivo
   - Oh My Pi config (`~/.omp/agent/*`)
   - Waybar, Swaylock, Mako, Swayidle, Polkit-gnome

@@ -108,13 +108,7 @@
   #services.xserver.desktopManager.plasma6.enable = true;
   services.desktopManager.plasma6.enable = true;
 
-  # hyprland
-  programs.hyprland = {
-    # Install the packages from nixpkgs
-    enable = true;
-    # Whether to enable XWayland
-    xwayland.enable = true;
-  };
+
   #wayland support for electron based apps and chromium
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -123,7 +117,6 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-hyprland
       pkgs.kdePackages.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-wlr
     ];

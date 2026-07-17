@@ -96,7 +96,7 @@
     ".omp/agent/config.yml".source = ../../omp/config.yml;
     ".omp/agent/mcp.json".source = ../../omp/mcp.json;
     ".omp/agent/RULES.md".source = ../../omp/RULES.md;
-    #".config/hypr/hyprland.conf".text = ''${builtins.readFile ../../hypr/hyprland.conf}'';
+
 
     #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
@@ -196,21 +196,6 @@
       eval "$(starship init zsh)"
       eval "$(direnv hook zsh)"
     '';
-  };
-
-  wayland.windowManager.hyprland = {
-    # Whether to enable Hyprland wayland compositor
-    enable = true;
-    # The hyprland package to use
-    package = pkgs.hyprland;
-    # Whether to enable XWayland
-    xwayland.enable = true;
-
-    # Optional
-    # Whether to enable hyprland-session.target on hyprland startup
-    systemd.enable = true;
-
-    extraConfig = "${builtins.readFile ../../hypr/hyprland.conf}";
   };
 
   dconf = {
