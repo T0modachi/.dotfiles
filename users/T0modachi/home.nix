@@ -87,8 +87,6 @@
     #".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
     ".config/ghostty/config".source = ../../ghostty/config;
-    ".config/zellij".source = ../../zellij;
-    ".config/zellij".recursive = true;
     ".config/niri/config.kdl" = {
       source = ../../niri/config.kdl;
       force = true; # <--- Sobreescribe sin preguntar

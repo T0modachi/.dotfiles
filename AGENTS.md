@@ -29,7 +29,6 @@ Este repositorio es una configuración de **NixOS + Home Manager** para una máq
 ├── packages/
 │   └── zen.nix                # Empaquetado custom de Zen Browser (AppImage)
 ├── nvim/                      # Configuración de Neovim (Lua, se carga vía Nixvim en inputs)
-├── zellij/                    # Configuración de Zellij
 ├── ghostty/                   # Configuración de Ghostty
 ├── starship/                  # Prompt de Starship
 ├── niri/                      # Configuración del compositor Niri
@@ -74,7 +73,6 @@ Cada `home.nix` declara:
 
 - **T0modachi** usa:
   - Niri (enlazado con `force = true`)
-  - Zellij como directorio recursivo
   - Oh My Pi config (`~/.omp/agent/*`)
   - Waybar, Swaylock, Mako, Swayidle, Polkit-gnome
 

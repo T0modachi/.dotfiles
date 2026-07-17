@@ -41,7 +41,6 @@
     awscli2
     vlc
     keymapp
-    zellij
     ghostty
     bitwarden-cli
     bitwarden-desktop
