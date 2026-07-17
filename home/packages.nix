@@ -21,7 +21,7 @@
     slack
     anydesk
     dbeaver-bin
-    (callPackage ../packages/zen.nix { })
+    inputs.zen-browser-flake.packages.${pkgs.system}.default
     ghostty
     kitty
     bitwarden-cli
