@@ -131,7 +131,6 @@ Después de cambios grandes en Nix/Lua, reindexa para que los agentes posteriore
 - **`system/hardware.nix`** es auto-generada por `nixos-generate-config`. No la edites a mano salvo que el hardware cambie.
 - **`.codegraph/`** está ignorado por git. No commitees la base de datos.
 - **`result`** es un symlink de Nix build. Está en `.gitignore`.
-- **`home/dotfiles.nix`** usa `force = true` para Niri. Sobrescribe sin preguntar.
 - **No dupliques `allowUnfree`** — ya está en `system/nix-settings.nix`.
 - **`system/packages.nix`** es solo para herramientas base del sistema. Apps y tools de usuario van en `home/packages.nix`.
 

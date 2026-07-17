@@ -44,6 +44,7 @@
             "electron-25.9.0"
             "electron-27.3.11"
             "electron-28.3.3"
+            "electron-39.8.10"
           ];
         };
       };
