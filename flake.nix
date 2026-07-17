@@ -1,5 +1,5 @@
 {
-  description = "jvergara-ialink dotfiles";
+  description = "dotfiles";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -60,24 +60,9 @@
           ];
           extraSpecialArgs = { inherit inputs outputs; };
         };
-
-        jvergara-ialink = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./users/jvergara-ialink/home.nix
-          ];
-          extraSpecialArgs = { inherit inputs outputs; };
-        };
       };
 
       nixosConfigurations = {
-        work-laptop = lib.nixosSystem {
-          inherit system;
-          modules = [
-            ./system/work-laptop/configuration.nix
-            ./system/work-laptop/hardware-configuration.nix
-          ];
-        };
         nix-laptop = lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
