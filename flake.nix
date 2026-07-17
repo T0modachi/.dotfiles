@@ -55,7 +55,7 @@
         T0modachi = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./users/T0modachi/home.nix
+            ./home
             inputs.agent-skills-nix.homeManagerModules.default
           ];
           extraSpecialArgs = { inherit inputs outputs; };
@@ -67,8 +67,7 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./system/nix-laptop/configuration.nix
-            ./system/nix-laptop/hardware-configuration.nix
+            ./system
           ];
         };
       };
