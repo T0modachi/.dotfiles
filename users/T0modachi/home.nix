@@ -83,8 +83,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    #".config/nvim".source = ./../../nvim;
-    #".config/nvim".recursive = true;
     ".config/starship.toml".source = ../../starship/starship.toml;
     ".config/ghostty/config".source = ../../ghostty/config;
     ".config/niri/config.kdl" = {

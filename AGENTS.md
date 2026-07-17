@@ -28,7 +28,6 @@ Este repositorio es una configuración de **NixOS + Home Manager** para una máq
 │   │   └── home.nix
 ├── packages/
 │   └── zen.nix                # Empaquetado custom de Zen Browser (AppImage)
-├── nvim/                      # Configuración de Neovim (Lua, se carga vía Nixvim en inputs)
 ├── ghostty/                   # Configuración de Ghostty
 ├── starship/                  # Prompt de Starship
 ├── niri/                      # Configuración del compositor Niri
