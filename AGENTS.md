@@ -32,7 +32,6 @@ Este repositorio es una configuración de **NixOS + Home Manager** para una máq
 ├── ghostty/                   # Configuración de Ghostty
 ├── starship/                  # Prompt de Starship
 ├── niri/                      # Configuración del compositor Niri
-├── tmux/                      # Configuración de Tmux (no enlazada por HM en T0modachi)
 ├── omp/
 │   ├── config.yml             # Configuración de Oh My Pi
 │   └── mcp.json               # Servidores MCP disponibles (context7, codegraph)

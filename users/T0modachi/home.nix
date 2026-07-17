@@ -94,19 +94,6 @@
     ".omp/agent/config.yml".source = ../../omp/config.yml;
     ".omp/agent/mcp.json".source = ../../omp/mcp.json;
     ".omp/agent/RULES.md".source = ../../omp/RULES.md;
-
-
-    #".config/tmux/tmux.conf".source = ./../../tmux/tmux.conf;
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
   };
 
   # You can also manage environment variables but you will have to manually
@@ -158,20 +145,6 @@
     };
   };
 
-  programs.tmux = {
-    enable = true;
-    plugins = with pkgs; [
-      tmuxPlugins.sensible
-      tmuxPlugins.vim-tmux-navigator
-      tmuxPlugins.catppuccin
-      tmuxPlugins.yank
-    ];
-
-    extraConfig = ''
-      ${builtins.readFile ./../../tmux/tmux.conf}
-    '';
-  };
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -185,7 +158,6 @@
       enable = true;
       plugins = [
         "git"
-        "tmux"
       ];
     };
     history.size = 10000;
