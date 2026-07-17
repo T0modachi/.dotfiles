@@ -38,12 +38,11 @@ Este repositorio es una configuración de **NixOS + Home Manager** para una sola
 │   └── dotfiles.nix           # home.file — symlinks a configs
 ├── packages/
 │   └── zen.nix                # Empaquetado custom de Zen Browser (AppImage)
-├── ghostty/                   # Configuración de Ghostty
-├── starship/                  # Prompt de Starship
-├── niri/                      # Configuración del compositor Niri
-├── omp/
-│   ├── config.yml             # Configuración de Oh My Pi
-│   └── mcp.json               # Servidores MCP disponibles (context7, codegraph)
+├── configs/
+│   ├── ghostty/               # Configuración de Ghostty
+│   ├── starship/              # Prompt de Starship
+│   ├── niri/                  # Configuración del compositor Niri
+│   └── omp/                   # Configuración de Oh My Pi y servidores MCP
 └── apply.sh                   # Script unificado de activación
 ```
 
@@ -62,7 +61,8 @@ Este repositorio es una configuración de **NixOS + Home Manager** para una sola
 ## 4. Convenciones de edición
 
 - **Nix es funcional:** no modifiques variables, no uses impureza. Todos los paths a recursos del repo deben resolver al Nix store a través de `source = ../../ruta/relativa`.
-- **Rutas relativas:** en `home/dotfiles.nix` usa `../` para subir desde `home/` hasta la raíz del repo.
+- **Rutas relativas:** en `home/dotfiles.nix` usa `../configs/<app>/` para referenciar configuraciones de usuario.
+- **Configs de paquetes de usuario van bajo `configs/<app>/`**, no en la raíz del repositorio.
 - **No hardcodees hashes si no es necesario:** el `zen.nix` usa un hash fijo de AppImage; si se actualiza Zen, hay que recalcular el `sha256`.
 - **Comentarios:** en español para consistencia con `omp/config.yml` y muchos comentarios existentes.
 - **Permitir unfree:** centralizado en `system/nix-settings.nix` (nixpkgs.config). No lo dupliques en otros módulos.
@@ -96,7 +96,7 @@ Cada archivo es un módulo Home Manager con una responsabilidad clara:
 | `git.nix` | Git config (user, mail), delta (diff viewer) |
 | `wayland.nix` | Waybar, fuzzel, swaylock, alacritty, mako, swayidle, polkit |
 | `gaming.nix` | Wine, Vulkan, DXVK, Mesa, Protonup-Qt |
-| `dotfiles.nix` | Symlinks: starship, ghostty, niri, omp |
+| `dotfiles.nix` | Symlinks a `../configs/` para starship, ghostty, niri, omp |
 
 ## 7. Script de aplicación
 
@@ -120,7 +120,7 @@ El repo integra CodeGraph. El índice se encuentra en `.codegraph/codegraph.db` 
 codegraph sync .
 ```
 
-Servidores MCP activos en `omp/mcp.json`:
+Servidores MCP activos en `configs/omp/mcp.json`:
 - `context7` — documentación de librerías.
 - `codegraph` — grafo de código del propio repo.
 

@@ -1,13 +1,13 @@
 {
   home.file = {
-    ".config/starship.toml".source = ../starship/starship.toml;
-    ".config/ghostty/config".source = ../ghostty/config;
+    ".config/starship.toml".source = ../configs/starship/starship.toml;
+    ".config/ghostty/config".source = ../configs/ghostty/config;
     ".config/niri/config.kdl" = {
-      source = ../niri/config.kdl;
+      source = ../configs/niri/config.kdl;
       force = true;
     };
-    ".omp/agent/config.yml".source = ../omp/config.yml;
-    ".omp/agent/mcp.json".source = ../omp/mcp.json;
-    ".omp/agent/RULES.md".source = ../omp/RULES.md;
+    ".omp/agent/config.yml".source = ../configs/omp/config.yml;
+    ".omp/agent/mcp.json".source = ../configs/omp/mcp.json;
+    ".omp/agent/RULES.md".source = ../configs/omp/RULES.md;
   };
 }
