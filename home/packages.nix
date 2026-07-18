@@ -23,10 +23,10 @@
     dbeaver-bin
     inputs.zen-browser-flake.packages.${pkgs.system}.default
     ghostty
-    kitty
     bitwarden-cli
     bitwarden-desktop
     discord
+    telegram-desktop
     vlc
     ollama
 
@@ -54,6 +54,11 @@
     xwayland-satellite
     wl-clipboard
     xclip
+    grim
+    slurp
+    swappy
+    pavucontrol
+    brightnessctl
     gnomeExtensions.paperwm
   ];
 }

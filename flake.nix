@@ -11,6 +11,8 @@
     mcp-servers-nix.url = "github:natsukium/mcp-servers-nix";
     agent-skills-nix.url = "github:Kyure-A/agent-skills-nix";
     zen-browser-flake.url = "github:0xc000022070/zen-browser-flake";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    niri.url = "github:sodiboo/niri-flake";
     caveman = {
       url = "github:JuliusBrussee/caveman";
       flake = false;
@@ -59,6 +61,8 @@
           modules = [
             ./home
             inputs.agent-skills-nix.homeManagerModules.default
+            inputs.noctalia.homeModules.default
+            inputs.niri.homeModules.config
           ];
           extraSpecialArgs = { inherit inputs outputs; };
         };
