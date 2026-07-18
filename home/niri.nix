@@ -194,6 +194,7 @@ in
         # Misc
         "Mod+W".action.spawn = noctaliaMsg "mic-volume-mute";
         "Mod+Escape".action = toggle-keyboard-shortcuts-inhibit;
+        "Mod+P".action.spawn = noctaliaMsg "session lock";
         "Mod+Shift+P".action = power-off-monitors;
         "Mod+O".action = toggle-overview;
         "Mod+Shift+Slash".action = show-hotkey-overlay;
