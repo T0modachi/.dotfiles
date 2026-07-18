@@ -9,5 +9,6 @@
     ./wayland.nix
     ./gaming.nix
     ./dotfiles.nix
+    ./lsp.nix
   ];
 }
