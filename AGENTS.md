@@ -9,7 +9,7 @@ This repository is a **NixOS + Home Manager** configuration for one machine and 
 - **Fixed system:** `x86_64-linux`
 - **Nixpkgs channel:** `nixos-unstable`
 - **Home Manager:** `master` branch with `follows = "nixpkgs"`
-- **Key flake inputs:** `nixpkgs`, `home-manager`, `devenv`, `nixvim`, `llm-agents`, `mcp-servers-nix`, `agent-skills-nix`, `zen-browser-flake`, `caveman`, `anthropic-skills`, `ponytail`
+- **Key flake inputs:** `nixpkgs`, `home-manager`, `devenv`, `nixvim`, `my-omp`, `zen-browser-flake`, `noctalia`, `niri`
 
 ## 2. Repository structure
 
@@ -39,8 +39,7 @@ This repository is a **NixOS + Home Manager** configuration for one machine and 
 ├── configs/
 │   ├── ghostty/               # Ghostty configuration
 │   ├── starship/              # Starship prompt configuration
-│   ├── niri/                  # Niri compositor configuration
-│   └── omp/                   # Oh My Pi and MCP server configuration
+│   └── niri/                  # Niri compositor configuration
 └── apply.sh                   # Unified activation script
 ```
 
@@ -92,9 +91,9 @@ Each file is a Home Manager module with a single clear responsibility:
 | `packages.nix` | Apps, dev tools, CLI tools, wayland utilities                             |
 | `shell.nix`    | Bash, Zsh (oh-my-zsh), starship, direnv                                   |
 | `git.nix`      | Git config (user, mail), delta (diff viewer)                              |
-| `wayland.nix`  | Waybar, fuzzel, swaylock, alacritty, mako, swayidle, polkit               |
-| `gaming.nix`   | Wine, Vulkan, DXVK, Mesa, Protonup-Qt                                     |
-| `dotfiles.nix` | Symlinks to `../configs/` for starship, ghostty, niri, omp                |
+| `wayland.nix`  | Waybar, fuzzel, swaylock, mako, swayidle, polkit              |
+| `gaming.nix`   | Wine, Vulkan, DXVK, Mesa, Protonup                          |
+| `dotfiles.nix` | Symlinks to `../configs/` for starship, ghostty, niri       |
 
 ## 7. Activation scripts
 
@@ -111,15 +110,11 @@ Other helper scripts:
 - `update.sh` — `nix flake update`
 - `gc.sh` — `nix-collect-garbage --delete-older-than 30d`
 
-## 8. MCP and CodeGraph
+## 8. MCP, CodeGraph and OMP
 
-This repo integrates CodeGraph. The index lives at `.codegraph/codegraph.db` and is updated with:
+Oh My Pi (OMP) configuration, LSP/DAP/linter packages, MCP servers, and agent skills are managed by the standalone `my-omp` flake at `~/repos/my-omp` and imported via the `my-omp` flake input.
 
-```bash
-codegraph sync .
-```
-
-Active MCP servers in `configs/omp/mcp.json`:
+Active MCP servers in `~/repos/my-omp/config/mcp.json`:
 
 - `context7` — library documentation.
 - `codegraph` — code graph of this repository.

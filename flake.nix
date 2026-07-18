@@ -7,24 +7,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     devenv.url = "github:cachix/devenv/latest";
     nixvim.url = "github:T0modachi/nixvim-config";
-    llm-agents.url = "github:numtide/llm-agents.nix";
-    mcp-servers-nix.url = "github:natsukium/mcp-servers-nix";
-    agent-skills-nix.url = "github:Kyure-A/agent-skills-nix";
+    my-omp.url = "path:/home/T0modachi/repos/my-omp";
     zen-browser-flake.url = "github:0xc000022070/zen-browser-flake";
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     niri.url = "github:sodiboo/niri-flake";
-    caveman = {
-      url = "github:JuliusBrussee/caveman";
-      flake = false;
-    };
-    anthropic-skills = {
-      url = "github:anthropics/skills";
-      flake = false;
-    };
-    ponytail = {
-      url = "github:DietrichGebert/ponytail";
-      flake = false;
-    };
   };
 
   outputs =
@@ -60,7 +46,7 @@
           inherit pkgs;
           modules = [
             ./home
-            inputs.agent-skills-nix.homeManagerModules.default
+            inputs.my-omp.homeManagerModules.default
             inputs.noctalia.homeModules.default
             inputs.niri.homeModules.config
           ];
