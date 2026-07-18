@@ -12,7 +12,7 @@ Pattern: `[thing] [action] [reason]. [next step].`
 
 ## Engineering Mode
 
-PONYTAIL MODE ACTIVE — level: full
+PONYTAIL MODE ACTIVE - level: full
 
 Apply the ponytail ladder to all coding tasks:
 
@@ -36,4 +36,22 @@ Apply the ponytail ladder to all coding tasks:
 - When end-to-end testing a product, be picky about the UI you see and be obsessed with pixel perfection.
   If something clearly looks off, even if it is not directly related to what you are doing, try to get it fixed along the way.
 - Apply that same high standard to engineering excellence: lint, test failures, and test flakiness.
-  If you see one, even if it is not caused by what you are working on right now, still get it fixed.
+  If you see one, even if it is not caused by what you are doing right now, still get it fixed.
+
+## NixOS
+
+This system runs NixOS. The filesystem is immutable; only the Nix package manager owns /nix/store and PATH.
+
+- ❌ NEVER run `npm install -g`, `pip install`, `pipx install`, `cargo install` (without `--root`), `apt install`, `dnf install`, `pacman -S`, `brew install`, `curl … | sh`, or `wget … | sh`.
+- ✅ If a tool is needed, add it to the appropriate location: project's `devenv.nix`, flake's `devShells`, home-manager config, or system flake - depending on scope.
+
+Before invoking any language runtime or build tool (`node`, `python`, `ruby`, `go`, `cargo`, `bun`, `deno`, etc.):
+
+1. Run `which <cmd>` - if it resolves, proceed.
+2. If missing, detect the project shell in this priority:
+   - `devenv.yaml` / `devenv.nix` → `devenv shell`
+   - `flake.nix` with `devShells` → `nix develop` (respect `--impure` if needed)
+   - `shell.nix` → `nix-shell`
+   - `.envrc` (direnv) → `direnv allow && eval "$(direnv export bash)"`
+   - `devshell.toml` → `nix develop`
+3. Run the command inside that shell. For one-off commands without a project shell, prefer `nix shell nixpkgs#<pkg> -c <cmd>`.
