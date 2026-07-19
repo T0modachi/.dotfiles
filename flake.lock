@@ -903,14 +903,17 @@
         "ponytail": "ponytail"
       },
       "locked": {
-        "lastModified": 1784418402,
-        "narHash": "sha256-/WoavdYASAQeCUXZAfvMKpSngcqQRnDQGMkkus24MZw=",
-        "path": "/home/T0modachi/repos/my-omp",
-        "type": "path"
+        "lastModified": 1784418712,
+        "narHash": "sha256-kiJOBiep3EQrmdONEDxrOVAFqO2YYz/DKTbzqYcHU2I=",
+        "owner": "T0modachi",
+        "repo": "my-omp",
+        "rev": "09ee27002f88facf5d403b77ce44dbfd99adb8a8",
+        "type": "github"
       },
       "original": {
-        "path": "/home/T0modachi/repos/my-omp",
-        "type": "path"
+        "owner": "T0modachi",
+        "repo": "my-omp",
+        "type": "github"
       }
     },
     "niri": {

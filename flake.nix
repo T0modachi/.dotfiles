@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     devenv.url = "github:cachix/devenv/latest";
     nixvim.url = "github:T0modachi/nixvim-config";
-    my-omp.url = "path:/home/T0modachi/repos/my-omp";
+    my-omp.url = "github:T0modachi/my-omp";
     zen-browser-flake.url = "github:0xc000022070/zen-browser-flake";
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     niri.url = "github:sodiboo/niri-flake";
