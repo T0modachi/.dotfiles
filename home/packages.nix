@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     # Development
@@ -24,7 +28,6 @@
     discord
     telegram-desktop
     vlc
-    ollama
 
     # CLI tools
     starship
