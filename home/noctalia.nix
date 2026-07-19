@@ -16,6 +16,20 @@
         directory = "~/Pictures/Wallpapers";
       };
       lockscreen.enabled = true;
+      idle = {
+        behavior = {
+          lock = {
+            timeout = 300;
+            action = "lock";
+            enabled = true;
+          };
+          screen-off = {
+            timeout = 600;
+            action = "screen_off";
+            enabled = true;
+          };
+        };
+      };
     };
   };
 }
